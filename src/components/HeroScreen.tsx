@@ -193,7 +193,8 @@ export default function HeroScreen() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="hidden items-center gap-12 text-[16px] font-normal tracking-normal md:flex md:ml-auto md:mr-8"
+          className="hidden items-center gap-16 text-[18px] font-medium tracking-wide md:flex md:ml-auto md:mr-8"
+          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
         >
           {navItems.map((item, index) => {
             if (item === "Services") {
@@ -209,14 +210,15 @@ export default function HeroScreen() {
                     animate={{ 
                       opacity: 1, 
                       y: 0,
-                      color: isServicesHovered ? "#000000" : "rgba(255, 255, 255, 0.9)",
+                      color: isServicesHovered ? "#000000" : "rgba(255, 255, 255, 0.95)",
                     }}
                     transition={{
                       duration: 0.4,
                       delay: 0.15 + index * 0.05,
                       ease: "easeOut",
                     }}
-                    className="bg-transparent transition-colors hover:opacity-100"
+                    className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                    style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   >
                     {item}
                   </motion.button>
@@ -382,14 +384,15 @@ export default function HeroScreen() {
                 animate={{ 
                   opacity: 1, 
                   y: 0,
-                  color: isServicesHovered ? "#000000" : "rgba(255, 255, 255, 0.9)",
+                  color: isServicesHovered ? "#000000" : "rgba(255, 255, 255, 0.95)",
                 }}
                 transition={{
                   duration: 0.4,
                   delay: 0.15 + index * 0.05,
                   ease: "easeOut",
                 }}
-                className="bg-transparent transition-colors hover:opacity-100"
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
                 {item}
               </motion.button>
@@ -402,42 +405,31 @@ export default function HeroScreen() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex items-center gap-6 text-sm"
+          className="flex items-center gap-8 text-sm"
         >
-          <motion.button
-            animate={{
-              borderColor: isServicesHovered ? "#000000" : "rgba(255, 255, 255, 0.3)",
-              backgroundColor: isServicesHovered ? "transparent" : "rgba(0, 0, 0, 0.2)",
-              color: isServicesHovered ? "#000000" : "rgba(255, 255, 255, 0.8)",
-            }}
-            className="hidden rounded-full border px-4 py-1 text-[14px] font-normal tracking-normal backdrop-blur-md hover:border-black hover:bg-gray-50 md:inline-flex transition-colors"
-          >
-            Request a quote
-          </motion.button>
-
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-10">
             <motion.div
               animate={{
                 color: isServicesHovered ? "#000000" : "#ffffff",
               }}
             >
-              <PhoneCall className="hidden h-4 w-4 md:inline-block" />
+              <PhoneCall className="hidden h-5 w-5 md:inline-block" />
             </motion.div>
             <motion.div
               animate={{
                 color: isServicesHovered ? "#000000" : "#ffffff",
               }}
             >
-              <Search className="h-4 w-4" />
+              <Search className="h-5 w-5" />
             </motion.div>
             {/* Save/Bookmark icon */}
             <motion.svg
-              width="17"
-              height="21"
+              width="20"
+              height="24"
               viewBox="0 0 17 21"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-5 w-5"
               animate={{
                 fill: isServicesHovered ? "#000000" : "#ffffff",
                 stroke: isServicesHovered ? "#000000" : "#ffffff",
@@ -449,21 +441,21 @@ export default function HeroScreen() {
               />
             </motion.svg>
             {/* Menu icon */}
-            <motion.button className="inline-flex flex-col items-center justify-center gap-[3px]">
+            <motion.button className="inline-flex flex-col items-center justify-center gap-[4px]">
               <motion.span
-                className="h-[2px] w-5"
+                className="h-[2.5px] w-6"
                 animate={{
                   backgroundColor: isServicesHovered ? "#000000" : "#ffffff",
                 }}
               />
               <motion.span
-                className="h-[2px] w-5"
+                className="h-[2.5px] w-6"
                 animate={{
                   backgroundColor: isServicesHovered ? "#000000" : "#ffffff",
                 }}
               />
               <motion.span
-                className="h-[2px] w-5"
+                className="h-[2.5px] w-6"
                 animate={{
                   backgroundColor: isServicesHovered ? "#000000" : "#ffffff",
                 }}
