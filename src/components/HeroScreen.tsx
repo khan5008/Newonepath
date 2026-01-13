@@ -65,7 +65,7 @@ export default function HeroScreen() {
     <motion.section
       ref={heroRef}
       style={{ opacity, scale }}
-      className="relative min-h-screen text-white overflow-hidden bg-black"
+      className="relative min-h-screen text-white overflow-hidden bg-black z-20"
     >
       {/* Background video - rotates between hero1, NGE, and Al Safar with a soft crossfade.
           Object position is pushed more to the right for app promos so the left text

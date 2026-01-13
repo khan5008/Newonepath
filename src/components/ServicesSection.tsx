@@ -37,15 +37,15 @@ export default function ServicesSection() {
     
     if (!videos.every(v => v) || !sections.every(s => s) || !contents.every(c => c)) return;
 
-    // Set initial states - only first section visible
+    // Set initial states - all hidden initially
     gsap.set(contents, { opacity: 0, y: 50 });
     gsap.set(videos, { opacity: 0, visibility: "hidden" });
     gsap.set(sections, { opacity: 0 });
     
-    // Show first section initially
-    gsap.set([sections[0], contents[0], videos[0]], { opacity: 1 });
-    gsap.set(videos[0], { visibility: "visible" });
-    gsap.set(contents[0], { y: 0 });
+    // Ensure fixed container starts hidden
+    if (fixedContainerRef.current) {
+      gsap.set(fixedContainerRef.current, { opacity: 0, visibility: "hidden" });
+    }
 
     // Create main scroll trigger for smooth transitions
     ScrollTrigger.create({
@@ -57,6 +57,10 @@ export default function ServicesSection() {
         if (fixedContainerRef.current) {
           gsap.set(fixedContainerRef.current, { opacity: 1, visibility: "visible" });
         }
+        // Show first section when entering
+        gsap.set([sections[0], contents[0], videos[0]], { opacity: 1 });
+        gsap.set(videos[0], { visibility: "visible" });
+        gsap.set(contents[0], { y: 0 });
       },
       onLeave: () => {
         if (fixedContainerRef.current) {
@@ -156,7 +160,7 @@ export default function ServicesSection() {
       style={{ height: "300vh" }} // 3x height for smooth scrolling
     >
       {/* Fixed container for all sections - clipped to section bounds */}
-      <div ref={fixedContainerRef} className="fixed inset-0 w-full h-screen pointer-events-none" style={{ zIndex: 1, willChange: 'transform' }}>
+      <div ref={fixedContainerRef} className="fixed inset-0 w-full h-screen pointer-events-none opacity-0 invisible" style={{ zIndex: 1, willChange: 'transform' }}>
         
         {/* Section 1: Design */}
         <div 
