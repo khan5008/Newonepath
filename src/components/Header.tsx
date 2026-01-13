@@ -102,9 +102,9 @@ export default function Header() {
         className="flex items-center gap-3"
       >
         <motion.img
-          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo.png"}
+          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo2.png"}
           alt="OnePath Solutions"
-          className="h-24 w-auto md:h-28 lg:h-32"
+          className={(headerIsWhite || isServicesHovered) ? "h-24 w-auto md:h-28 lg:h-32" : "h-32 w-auto md:h-36 lg:h-40"}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}
