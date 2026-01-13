@@ -17,19 +17,19 @@ const heroSlides = [
     id: "nge",
     video: "/assets/NGE.mp4",
     focus: "78% center",
-    tag: "EdTech Experience",
-    title: "NGE — Learning reimagined for the next generation.",
+    tag: "Digital Innovation",
+    title: "Transforming education through technology.",
     description:
-      "An education platform we crafted to make lessons intuitive and immersive.",
+      "Creating intuitive learning experiences that engage and inspire students.",
   },
   {
     id: "alsafar",
     video: "/assets/Al safar.mp4",
     focus: "82% center",
-    tag: "Super App Story",
-    title: "Al Safar — From booking to arrival, all in one app.",
+    tag: "Mobile Solutions",
+    title: "Seamless travel experiences made simple.",
     description:
-      "Al Safar connects travellers with a frictionless, end‑to‑end digital journey.",
+      "Comprehensive digital solutions that streamline the entire journey.",
   },
 ];
 

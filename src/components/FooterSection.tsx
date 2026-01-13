@@ -135,10 +135,17 @@ export default function FooterSection() {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-2 text-xs md:text-sm text-white/70">
-          <p style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}>
-            OnePath Solutions © {new Date().getFullYear()} All rights
-            reserved
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
+            <img
+              src="/assets/wlogo2.png"
+              alt="OnePath Solutions"
+              className="h-16 w-auto md:h-20 lg:h-24"
+            />
+            <p style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}>
+              OnePath Solutions © {new Date().getFullYear()} All rights
+              reserved
+            </p>
+          </div>
           <p
             className="space-x-3"
             style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}

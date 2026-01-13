@@ -117,7 +117,7 @@ export default function Header() {
         <motion.img
           src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo2.png"}
           alt="OnePath Solutions"
-          className="h-20 w-auto md:h-24 lg:h-28"
+          className="object-contain w-[100px] h-[60px] md:w-[120px] md:h-[72px] lg:w-[140px] lg:h-[84px]"
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}
