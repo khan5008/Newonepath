@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 export default function OurStorySection() {
   return (
     <motion.section
+      data-section="our-story"
+      data-header-color="black"
       className="relative min-h-screen bg-black text-white overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

@@ -32,6 +32,8 @@ const customers = [
 export default function OurCustomersSection() {
   return (
     <motion.section
+      data-section="our-customers"
+      data-header-color="white"
       className="relative bg-[#f5f6f8] text-black overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

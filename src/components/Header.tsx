@@ -11,16 +11,28 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Get the CaseStudiesSection position
-      const caseStudiesSection = document.querySelector('[data-section="case-studies"]');
-      if (caseStudiesSection) {
-        const rect = caseStudiesSection.getBoundingClientRect();
-        // Change to white header when CaseStudiesSection comes into view
-        setHeaderIsWhite(rect.top <= 100);
+      // Get all sections with data-header-color attribute
+      const sections = Array.from(document.querySelectorAll('section[data-header-color]'));
+      
+      let shouldBeWhite = false;
+      const viewportTop = window.scrollY + 150; // Offset for header
+      
+      // Find the section currently in view (checking from top to bottom)
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        // Check if section is in viewport (top is above 150px and bottom is below 150px)
+        if (rect.top <= 150 && rect.bottom > 150) {
+          const headerColor = section.getAttribute('data-header-color');
+          shouldBeWhite = headerColor === 'white';
+          break; // Use the first matching section
+        }
       }
+      
+      setHeaderIsWhite(shouldBeWhite);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check initial position
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -88,7 +100,8 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 pt-1 pb-1 md:px-12 lg:px-20 transition-colors duration-300"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 lg:px-20 transition-colors duration-300"
+      style={{ paddingTop: '0.125rem', paddingBottom: '0.125rem', marginTop: '-0.5rem' }}
       animate={{
         backgroundColor: headerIsWhite || isServicesHovered ? "white" : "transparent",
       }}
@@ -104,7 +117,7 @@ export default function Header() {
         <motion.img
           src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo.png"}
           alt="OnePath Solutions"
-          className="h-24 w-auto md:h-28 lg:h-32"
+          className="h-20 w-auto md:h-24 lg:h-28"
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}

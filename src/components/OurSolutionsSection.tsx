@@ -13,6 +13,8 @@ const solutions = [
 export default function OurSolutionsSection() {
   return (
     <motion.section
+      data-section="our-solutions"
+      data-header-color="black"
       className="relative min-h-screen overflow-hidden bg-black text-white"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

@@ -43,7 +43,7 @@ const caseStudies = [
 
 export default function CaseStudiesSection() {
   return (
-    <section className="bg-white py-20 md:py-32 min-h-screen" data-section="case-studies">
+    <section className="bg-white py-20 md:py-32 min-h-screen" data-section="case-studies" data-header-color="white">
       <div className="max-w-full mx-auto px-6 md:px-12 lg:px-20">
         {/* Case Studies Heading - positioned on left side */}
         <div className="mb-16 md:mb-20">

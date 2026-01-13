@@ -38,6 +38,8 @@ const whatWeDoItems = [
 export default function WhatWeDoSection() {
   return (
     <motion.section
+      data-section="what-we-do"
+      data-header-color="white"
       className="relative bg-white text-black overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

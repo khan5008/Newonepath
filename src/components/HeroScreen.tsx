@@ -102,7 +102,7 @@ export default function HeroScreen() {
       <div className="relative z-10 flex min-h-screen flex-col">
 
         {/* Hero content */}
-        <main className="flex flex-1 flex-col justify-end px-8 pb-32 pt-4 md:px-16 lg:px-20 lg:pb-40">
+        <main className="flex flex-1 flex-col justify-end px-8 md:px-12 lg:px-18" style={{ paddingTop: '25rem', paddingBottom: '2rem' }}>
           <div className="max-w-xl space-y-3">
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-white/80">
               {currentSlide.tag}
