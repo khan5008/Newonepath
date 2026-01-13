@@ -115,7 +115,7 @@ export default function Header() {
         className="flex items-center gap-3"
       >
         <motion.img
-          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo.png"}
+          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo2.png"}
           alt="OnePath Solutions"
           className="h-20 w-auto md:h-24 lg:h-28"
           animate={{ opacity: 1 }}
