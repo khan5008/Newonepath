@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 // Person images that will rotate every 2 seconds
 const personImages = [
-  "/assets/emp1.jpg",
+  "/assets/Manager.jpeg",
   "/assets/emp2.jpg", 
   "/assets/emp3.png"
 ];

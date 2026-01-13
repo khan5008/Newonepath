@@ -52,7 +52,7 @@ export default function CaseStudiesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-medium text-black text-left max-w-4xl"
+            className="text-[32px] md:text-[40px] lg:text-[48px] font-medium text-black text-left max-w-4xl"
             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           >
             Case Studies
