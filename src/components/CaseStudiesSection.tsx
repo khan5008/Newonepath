@@ -73,6 +73,7 @@ export default function CaseStudiesSection() {
     <motion.section
       ref={containerRef}
       className="relative min-h-[200vh] bg-white text-black overflow-hidden"
+      style={{ position: "relative", zIndex: 10 }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.1 }}
