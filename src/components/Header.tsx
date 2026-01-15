@@ -128,8 +128,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 lg:px-20 transition-colors duration-300"
-      style={{ paddingTop: '0.25rem', paddingBottom: '0.25rem' }}
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 lg:px-20 py-4 transition-colors duration-300"
       animate={{
         backgroundColor: headerIsWhite || isServicesHovered ? "white" : "transparent",
       }}
@@ -145,7 +144,7 @@ export default function Header() {
         <motion.img
           src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo2.png"}
           alt="OnePath Solutions"
-          className="object-contain w-[100px] h-[60px] md:w-[120px] md:h-[72px] lg:w-[140px] lg:h-[84px]"
+          className="h-16 w-auto md:h-20 lg:h-24 object-contain"
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}
@@ -346,6 +345,75 @@ export default function Header() {
               <motion.a
                 key={item}
                 href="/contact"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.15 + index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {item}
+              </motion.a>
+            );
+          }
+          if (item === "About") {
+            return (
+              <motion.a
+                key={item}
+                href="/about"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.15 + index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {item}
+              </motion.a>
+            );
+          }
+          if (item === "Solutions") {
+            return (
+              <motion.a
+                key={item}
+                href="/solutions"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.15 + index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {item}
+              </motion.a>
+            );
+          }
+          if (item === "Works") {
+            return (
+              <motion.a
+                key={item}
+                href="/portfolio"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ 
                   opacity: 1, 

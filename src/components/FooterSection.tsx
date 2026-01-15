@@ -139,7 +139,7 @@ export default function FooterSection() {
             <img
               src="/assets/wlogo2.png"
               alt="OnePath Solutions"
-              className="h-16 w-auto md:h-20 lg:h-24"
+              className="h-26 w-auto md:h-25 lg:h-26"
             />
             <p style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}>
               OnePath Solutions © {new Date().getFullYear()} All rights
