@@ -7,7 +7,7 @@ import FooterSection from "./FooterSection";
 
 export default function PortfolioDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroImages = ["/assets/portfoliodetail2.png", "/assets/portfoliodetail3.jpg"];
+  const heroImages = ["/assets/portfoliodetail2.jpg", "/assets/portfoliodetail3.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -142,7 +142,7 @@ export default function Header() {
         className="flex items-center gap-3"
       >
         <motion.img
-          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo2.png"}
+          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo3.png"}
           alt="OnePath Solutions"
           className="h-16 w-auto md:h-20 lg:h-24 object-contain"
           animate={{ opacity: 1 }}
@@ -168,7 +168,8 @@ export default function Header() {
                 onMouseEnter={() => setIsServicesHovered(true)}
                 onMouseLeave={() => setIsServicesHovered(false)}
               >
-                <motion.button
+                <motion.a
+                  href="/services"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ 
                     opacity: 1, 
@@ -184,7 +185,7 @@ export default function Header() {
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
                   {item}
-                </motion.button>
+                </motion.a>
 
                 {/* Services Dropdown */}
                 <AnimatePresence>
@@ -214,14 +215,14 @@ export default function Header() {
                               <br />
                               Brand
                             </h2>
-                            <div className="flex items-center gap-4 group cursor-pointer">
+                            <a href="/services" className="flex items-center gap-4 group cursor-pointer">
                               <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
                                 <ArrowRight className="h-6 w-6 text-white" />
                               </div>
                               <span className="text-white text-base md:text-lg font-normal">
                                 Go to Overview
                               </span>
-                            </div>
+                            </a>
                           </div>
 
                           {/* Right Side - Service Categories */}
@@ -414,6 +415,52 @@ export default function Header() {
               <motion.a
                 key={item}
                 href="/portfolio"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.15 + index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {item}
+              </motion.a>
+            );
+          }
+          if (item === "Industries") {
+            return (
+              <motion.a
+                key={item}
+                href="/industries"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.15 + index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {item}
+              </motion.a>
+            );
+          }
+          if (item === "Careers") {
+            return (
+              <motion.a
+                key={item}
+                href="/career2"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ 
                   opacity: 1, 

@@ -137,7 +137,7 @@ export default function FooterSection() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-2 text-xs md:text-sm text-white/70">
           <div className="flex flex-col md:flex-row md:items-center gap-4">
             <img
-              src="/assets/wlogo2.png"
+              src="/assets/wlogo3.png"
               alt="OnePath Solutions"
               className="h-26 w-auto md:h-25 lg:h-26"
             />
