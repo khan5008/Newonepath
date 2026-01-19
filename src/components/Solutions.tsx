@@ -86,9 +86,9 @@ export default function Solutions() {
   ];
 
   return (
-    <section className="min-h-screen bg-white pt-24" data-header-color="white">
+    <section className="min-h-screen bg-white pt-16" data-header-color="white">
       {/* Hero Video Section - Half Screen */}
-      <div className="relative w-full h-[50vh] overflow-hidden mt-4">
+      <div className="relative w-full h-[50vh] overflow-hidden">
         <video
           autoPlay
           loop
@@ -180,11 +180,11 @@ export default function Solutions() {
                     solution.imagePosition === "left" ? "lg:order-1" : ""
                   }`}
                 >
-                  <div className="relative max-w-md mx-auto">
+                  <div className="relative w-full max-w-md mx-auto">
                     <img
                       src={solution.image}
                       alt={solution.title}
-                      className="w-full h-auto rounded-2xl shadow-xl object-cover"
+                      className="w-full h-80 rounded-2xl shadow-xl object-cover"
                     />
                     
                     {/* Features Card Overlay */}

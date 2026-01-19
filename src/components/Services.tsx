@@ -8,7 +8,7 @@ export default function Services() {
   const serviceCategories = [
     {
       title: "Branding",
-      image: "/assets/solution1.jpg",
+      image: "/assets/rectangle 88.png",
       services: [
         "Brand Consulting",
         "Logo Design",
@@ -31,7 +31,7 @@ export default function Services() {
     },
     {
       title: "Technology",
-      image: "/assets/solution3.jpg",
+      image: "/assets/solution1.jpg",
       services: [
         "AI & Machine Learning",
         "Data & Analytics",
@@ -44,25 +44,29 @@ export default function Services() {
   ];
 
   return (
-    <section className="min-h-screen bg-white" data-header-color="white">
-      {/* Hero Section with Background Image */}
-      <div className="relative w-full h-[50vh]">
-        <img
-          src="/assets/services.jpg"
-          alt="Our Services"
+    <section className="min-h-screen bg-white pt-16" data-header-color="white">
+      {/* Hero Section with Background Video */}
+      <div className="relative w-full h-[50vh] overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
-        />
+        >
+          <source src="/assets/services.mp4" type="video/mp4" />
+        </video>
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-blue-900/60"></div>
 
         {/* Content */}
-        <div className="absolute inset-0 flex items-center px-6 md:px-12 lg:px-20">
+        <div className="absolute inset-0 flex items-center justify-start px-6 md:px-12 lg:px-20">
           <motion.h1
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl text-white font-light"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-4xl md:text-5xl lg:text-6xl text-white font-light max-w-2xl"
             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           >
             Our Services
@@ -86,16 +90,16 @@ export default function Services() {
             <div className="max-w-7xl mx-auto">
               <div
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  categoryIndex % 2 === 1 ? "lg:grid-flow-dense" : ""
+                  categoryIndex % 2 === 0 ? "lg:grid-flow-dense" : ""
                 }`}
               >
                 {/* Image */}
                 <motion.div
-                  initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? -30 : 30 }}
+                  initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? 30 : -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className={categoryIndex % 2 === 1 ? "lg:col-start-2" : ""}
+                  className={categoryIndex % 2 === 0 ? "lg:col-start-2" : ""}
                 >
                   <div className="relative rounded-3xl overflow-hidden shadow-xl">
                     <img
@@ -108,11 +112,11 @@ export default function Services() {
 
                 {/* Services List */}
                 <motion.div
-                  initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? 30 : -30 }}
+                  initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className={categoryIndex % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}
+                  className={categoryIndex % 2 === 0 ? "lg:col-start-1 lg:row-start-1" : ""}
                 >
                   <h2
                     className="text-3xl md:text-4xl lg:text-5xl text-black font-normal mb-8"

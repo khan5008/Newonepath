@@ -62,7 +62,7 @@ export default function About() {
   return (
     <section className="min-h-screen bg-white" data-header-color="white">
       {/* Main Content */}
-      <div className="pt-32 pb-20 px-6 md:px-12 lg:px-20">
+      <div className="pt-20 pb-16 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* About Us Section */}
           <motion.div
@@ -386,6 +386,97 @@ export default function About() {
           </motion.div>
         </div>
       </div>
+
+      {/* Clients Section */}
+      <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <h2
+              className="text-4xl md:text-5xl lg:text-6xl font-light mb-6"
+              style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+            >
+              Clients
+            </h2>
+            <p
+              className="text-gray-400 text-lg"
+              style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+            >
+              Our clients are everything to us; so are we to them.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-12">
+            {[
+              { name: "IKEA", logo: "IKEA" },
+              { name: "Marriott", logo: "Marriott" },
+              { name: "Garmin", logo: "GARMIN" },
+              { name: "Federal Bank", logo: "FEDERAL BANK" },
+              { name: "Synthite", logo: "Synthite" },
+              { name: "Alyasra", logo: "alyasra" },
+              { name: "GEOJIT", logo: "GEOJIT" },
+              { name: "Nestle", logo: "Nestlé" },
+              { name: "Microsoft", logo: "Microsoft" },
+              { name: "Apple", logo: "Apple" },
+              { name: "Google", logo: "Google" },
+              { name: "Amazon", logo: "Amazon" },
+              { name: "Tesla", logo: "Tesla" },
+              { name: "Netflix", logo: "Netflix" },
+              { name: "Spotify", logo: "Spotify" },
+              { name: "Adobe", logo: "Adobe" },
+              { name: "Samsung", logo: "Samsung" },
+              { name: "Sony", logo: "Sony" },
+              { name: "Nike", logo: "Nike" },
+              { name: "Coca Cola", logo: "Coca Cola" },
+              { name: "McDonald's", logo: "McDonald's" },
+              { name: "Starbucks", logo: "Starbucks" },
+              { name: "BMW", logo: "BMW" },
+              { name: "Mercedes", logo: "Mercedes" },
+            ].map((client, index) => (
+              <motion.div
+                key={client.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="text-center py-4 hover:opacity-70 transition-opacity group cursor-pointer"
+              >
+                <span
+                  className="text-white text-lg font-medium group-hover:scale-105 transition-transform inline-block"
+                  style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+                >
+                  {client.logo}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-white text-white px-8 py-3 text-base font-medium hover:bg-white hover:text-black transition-colors"
+              style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+            >
+              <span>View all clients</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Insights Section */}
       <div className="bg-white py-20 px-6 md:px-12 lg:px-20">

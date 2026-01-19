@@ -7,7 +7,7 @@ import FooterSection from "./FooterSection";
 
 export default function PortfolioDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroImages = ["/assets/portfoliodetail2.jpg", "/assets/portfoliodetail3.jpg"];
+  const heroImages = ["/assets/portfoliodetail2.jpg", "/assets/hajjpath.png"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,12 +73,12 @@ export default function PortfolioDetail() {
             </h1>
           </motion.div>
 
-          {/* Action Buttons */}
+          {/* Action Buttons - Moved to Middle */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="absolute top-32 right-6 md:right-12 lg:right-20 flex flex-col gap-4"
+            className="absolute top-1/2 -translate-y-1/2 right-6 md:right-12 lg:right-20 flex flex-col gap-4"
           >
             <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors">
               <Bookmark className="w-5 h-5 text-black" />
@@ -202,13 +202,6 @@ export default function PortfolioDetail() {
                 >
                   <source src="/assets/baisierweb.mp4" type="video/mp4" />
                 </video>
-                
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <div className="w-0 h-0 border-t-[15px] border-t-transparent border-l-[25px] border-l-white border-b-[15px] border-b-transparent ml-2"></div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -277,20 +270,24 @@ export default function PortfolioDetail() {
         </div>
       </div>
 
-      {/* Full Width Image - portfoliodetail4.png */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="w-full"
-      >
-        <img
-          src="/assets/portfoliodetail4.png"
-          alt="Portfolio Detail 4"
-          className="w-full h-auto object-cover"
-        />
-      </motion.div>
+      {/* Portfolio Detail 4 - Card Form */}
+      <div className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-3xl overflow-hidden shadow-xl"
+          >
+            <img
+              src="/assets/portfoliodetail4.png"
+              alt="Portfolio Detail 4"
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </div>
+      </div>
 
       {/* Challenges Section */}
       <div className="bg-white py-20 px-6 md:px-12 lg:px-20">
@@ -354,20 +351,24 @@ export default function PortfolioDetail() {
         </div>
       </div>
 
-      {/* Full Width Image - portfoliodetail.jpg */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="w-full"
-      >
-        <img
-          src="/assets/portfoliodetail.jpg"
-          alt="Portfolio Detail"
-          className="w-full h-auto object-cover"
-        />
-      </motion.div>
+      {/* Portfolio Detail 5 - Card Form */}
+      <div className="bg-white py-20 px-6 md:px-12 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-gray-50 rounded-3xl overflow-hidden shadow-xl"
+          >
+            <img
+              src="/assets/portfoliodetail5.jpg"
+              alt="Portfolio Detail 5"
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </div>
+      </div>
 
       {/* Results Section */}
       <div className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20">

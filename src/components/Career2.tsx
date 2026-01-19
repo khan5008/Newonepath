@@ -38,12 +38,12 @@ export default function Career2() {
   ];
 
   const lifePhotos = [
-    "/assets/emp1.jpg",
-    "/assets/emp2.jpg",
-    "/assets/emp3.png",
-    "/assets/Manager.jpeg",
-    "/assets/emp1.jpg",
-    "/assets/emp2.jpg",
+    "/assets/port1.jpg",
+    "/assets/port2.jpg",
+    "/assets/port4.jpg",
+    "/assets/port3.jpg",
+    "/assets/port5.jpg",
+    "/assets/port2.jpg",
   ];
 
   const clients = [
@@ -55,6 +55,22 @@ export default function Career2() {
     { name: "Alyasra", logo: "alyasra" },
     { name: "GEOJIT", logo: "GEOJIT" },
     { name: "Nestle", logo: "Nestlé" },
+    { name: "Microsoft", logo: "Microsoft" },
+    { name: "Apple", logo: "Apple" },
+    { name: "Google", logo: "Google" },
+    { name: "Amazon", logo: "Amazon" },
+    { name: "Tesla", logo: "Tesla" },
+    { name: "Netflix", logo: "Netflix" },
+    { name: "Spotify", logo: "Spotify" },
+    { name: "Adobe", logo: "Adobe" },
+    { name: "Samsung", logo: "Samsung" },
+    { name: "Sony", logo: "Sony" },
+    { name: "Nike", logo: "Nike" },
+    { name: "Coca Cola", logo: "Coca Cola" },
+    { name: "McDonald's", logo: "McDonald's" },
+    { name: "Starbucks", logo: "Starbucks" },
+    { name: "BMW", logo: "BMW" },
+    { name: "Mercedes", logo: "Mercedes" },
   ];
 
   const insights = [
@@ -85,9 +101,9 @@ export default function Career2() {
   ];
 
   return (
-    <div className="min-h-screen bg-white" data-header-color="white">
+    <div className="min-h-screen bg-white">
       {/* Values We Live By - Full Screen Black Section */}
-      <section className="min-h-screen bg-black text-white flex items-center px-6 md:px-12 lg:px-20 py-20">
+      <section className="min-h-screen bg-black text-white flex items-center px-6 md:px-12 lg:px-20 py-20" data-header-color="white">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left Side */}
           <motion.div
@@ -151,7 +167,7 @@ export default function Career2() {
       </section>
 
       {/* Current Openings */}
-      <section className="bg-white py-20 px-6 md:px-12 lg:px-20">
+      <section className="bg-white py-20 px-6 md:px-12 lg:px-20" data-header-color="white">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -229,7 +245,7 @@ export default function Career2() {
       </section>
 
       {/* Life @ ONEPATH */}
-      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20">
+      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20" data-header-color="white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -253,98 +269,115 @@ export default function Career2() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {lifePhotos.map((photo, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-              >
-                <img
-                  src={photo}
-                  alt={`Life at ONEPATH ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                {index === lifePhotos.length - 1 && (
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <span className="text-white text-lg font-medium">See More</span>
-                  </div>
-                )}
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {/* Row 1 - Small, Small, Large spanning 2 columns */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0 * 0.1 }}
+              className="relative overflow-hidden aspect-square group cursor-pointer"
+            >
+              <img
+                src="/assets/port1.jpg"
+                alt="Life at ONEPATH 1"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 1 * 0.1 }}
+              className="relative overflow-hidden aspect-square group cursor-pointer"
+            >
+              <img
+                src="/assets/port2.jpg"
+                alt="Life at ONEPATH 2"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 2 * 0.1 }}
+              className="relative overflow-hidden aspect-[2/1] col-span-2 group cursor-pointer"
+            >
+              <img
+                src="/assets/port3.jpg"
+                alt="Life at ONEPATH 3"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </motion.div>
+
+            {/* Row 2 - Small, Large, Small, Small with "See More" */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 3 * 0.1 }}
+              className="relative overflow-hidden aspect-square group cursor-pointer"
+            >
+              <img
+                src="/assets/port4.jpg"
+                alt="Life at ONEPATH 4"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 4 * 0.1 }}
+              className="relative overflow-hidden aspect-square group cursor-pointer"
+            >
+              <img
+                src="/assets/port5.jpg"
+                alt="Life at ONEPATH 5"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 5 * 0.1 }}
+              className="relative overflow-hidden aspect-square group cursor-pointer"
+            >
+              <img
+                src="/assets/port1.jpg"
+                alt="Life at ONEPATH 6"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 6 * 0.1 }}
+              className="relative overflow-hidden aspect-square group cursor-pointer"
+            >
+              <img
+                src="/assets/port2.jpg"
+                alt="Life at ONEPATH 7"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                <span className="text-white text-sm font-medium">See More</span>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Clients Section */}
-      <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-16"
-          >
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-light mb-6"
-              style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
-            >
-              Clients
-            </h2>
-            <p
-              className="text-gray-400 text-lg"
-              style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
-            >
-              Our clients are everything to us; so are we to them.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-12">
-            {clients.map((client, index) => (
-              <motion.div
-                key={client.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center justify-center"
-              >
-                <span
-                  className="text-white text-xl font-medium"
-                  style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
-                >
-                  {client.logo}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-white text-white px-8 py-3 text-base font-medium hover:bg-white hover:text-black transition-colors"
-              style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
-            >
-              <span>View all clients</span>
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </motion.div>
         </div>
       </section>
 
       {/* Insights Section */}
-      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20">
+      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20" data-header-color="white">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

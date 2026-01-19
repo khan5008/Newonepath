@@ -15,18 +15,18 @@ export default function ScrollHighlightSection() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start center", "end center"],
+    offset: ["start end", "end start"],
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    mass: 0.2,
+    stiffness: 150,
+    damping: 25,
+    mass: 0.15,
   });
 
   const sectionOpacity = useTransform(
     smoothProgress,
-    [0, 0.05, 0.85, 1],
+    [0, 0.1, 0.9, 1],
     [0, 1, 1, 0],
   );
 
@@ -36,7 +36,7 @@ export default function ScrollHighlightSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[220vh] bg-black text-white"
+      className="relative min-h-[200vh] bg-black text-white -mt-1"
     >
       <div className="sticky top-0 flex min-h-screen items-center justify-center px-8">
         <motion.div
@@ -56,7 +56,7 @@ export default function ScrollHighlightSection() {
                 className="block mb-4 whitespace-nowrap"
               >
                 {line.split(" ").map((word, wordIdx) => {
-                  const start = (globalIndex / allWords.length) * 0.9;
+                  const start = (globalIndex / allWords.length) * 0.4;
                   const end = Math.min(1, start + 0.12);
 
                   const opacity = useTransform(

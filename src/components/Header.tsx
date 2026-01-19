@@ -128,7 +128,9 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 lg:px-20 py-4 transition-colors duration-300"
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 lg:px-20 transition-colors duration-300 ${
+        (headerIsWhite || isServicesHovered) ? "py-1" : "py-2"
+      }`}
       animate={{
         backgroundColor: headerIsWhite || isServicesHovered ? "white" : "transparent",
       }}
@@ -144,7 +146,11 @@ export default function Header() {
         <motion.img
           src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo3.png"}
           alt="OnePath Solutions"
-          className="h-16 w-auto md:h-20 lg:h-24 object-contain"
+          className={`w-auto object-contain ${
+            (headerIsWhite || isServicesHovered) 
+              ? "h-14 md:h-16 lg:h-18" 
+              : "h-20 md:h-24 lg:h-28"
+          }`}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}
@@ -195,7 +201,7 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="fixed left-0 right-0 top-[100px] w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-50"
+                      className="fixed left-0 right-0 top-[72px] w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-50"
                       style={{ marginLeft: 0, marginRight: 0 }}
                       onMouseEnter={() => setIsServicesHovered(true)}
                       onMouseLeave={() => setIsServicesHovered(false)}
@@ -204,7 +210,7 @@ export default function Header() {
                         <div className="grid grid-cols-12 gap-12 items-start">
                           {/* Left Side - Large Heading + Button */}
                           <div className="col-span-12 lg:col-span-4 space-y-8">
-                            <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
+                            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
                               Building
                               <br />
                               strong
@@ -219,7 +225,7 @@ export default function Header() {
                               <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
                                 <ArrowRight className="h-6 w-6 text-white" />
                               </div>
-                              <span className="text-white text-base md:text-lg font-normal">
+                              <span className="text-white text-sm md:text-base font-normal">
                                 Go to Overview
                               </span>
                             </a>
@@ -232,16 +238,16 @@ export default function Header() {
                               <div className="space-y-10">
                                 <div className="space-y-4">
                                   <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-lg md:text-xl font-semibold">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
                                       Branding
                                     </h3>
-                                    <ChevronRight className="h-5 w-5 text-white transition-transform group-hover:translate-x-1" />
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                   </div>
                                   <ul className="space-y-3">
                                     {servicesMenu[0].items.map((item) => (
                                       <li
                                         key={item}
-                                        className="text-white/80 text-sm md:text-base hover:text-white transition-colors cursor-pointer"
+                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
                                       >
                                         {item}
                                       </li>
@@ -251,16 +257,16 @@ export default function Header() {
 
                                 <div className="space-y-4">
                                   <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-lg md:text-xl font-semibold">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
                                       ERP
                                     </h3>
-                                    <ChevronRight className="h-5 w-5 text-white transition-transform group-hover:translate-x-1" />
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                   </div>
                                   <ul className="space-y-3">
                                     {servicesMenu[1].items.map((item) => (
                                       <li
                                         key={item}
-                                        className="text-white/80 text-sm md:text-base hover:text-white transition-colors cursor-pointer"
+                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
                                       >
                                         {item}
                                       </li>
@@ -273,16 +279,16 @@ export default function Header() {
                               <div className="space-y-10">
                                 <div className="space-y-4">
                                   <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-lg md:text-xl font-semibold">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
                                       Intuitive Design
                                     </h3>
-                                    <ChevronRight className="h-5 w-5 text-white transition-transform group-hover:translate-x-1" />
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                   </div>
                                   <ul className="space-y-3">
                                     {servicesMenu[2].items.map((item) => (
                                       <li
                                         key={item}
-                                        className="text-white/80 text-sm md:text-base hover:text-white transition-colors cursor-pointer"
+                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
                                       >
                                         {item}
                                       </li>
@@ -292,16 +298,16 @@ export default function Header() {
 
                                 <div className="space-y-4">
                                   <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-lg md:text-xl font-semibold">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
                                       Digital Marketing
                                     </h3>
-                                    <ChevronRight className="h-5 w-5 text-white transition-transform group-hover:translate-x-1" />
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                   </div>
                                   <ul className="space-y-3">
                                     {servicesMenu[3].items.map((item) => (
                                       <li
                                         key={item}
-                                        className="text-white/80 text-sm md:text-base hover:text-white transition-colors cursor-pointer"
+                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
                                       >
                                         {item}
                                       </li>
@@ -314,16 +320,16 @@ export default function Header() {
                               <div className="space-y-10">
                                 <div className="space-y-4">
                                   <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-lg md:text-xl font-semibold">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
                                       Technology
                                     </h3>
-                                    <ChevronRight className="h-5 w-5 text-white transition-transform group-hover:translate-x-1" />
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                   </div>
                                   <ul className="space-y-3">
                                     {servicesMenu[4].items.map((item) => (
                                       <li
                                         key={item}
-                                        className="text-white/80 text-sm md:text-base hover:text-white transition-colors cursor-pointer"
+                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
                                       >
                                         {item}
                                       </li>
@@ -583,7 +589,7 @@ export default function Header() {
               width="20"
               height="24"
               viewBox="0 0 17 21"
-              fill="none"
+              fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
             >
@@ -593,28 +599,6 @@ export default function Header() {
               />
             </svg>
           </motion.a>
-
-          {/* Menu icon */}
-          <motion.button className="inline-flex flex-col items-center justify-center gap-[4px]">
-            <motion.span
-              className="h-[2.5px] w-6"
-              animate={{
-                backgroundColor: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
-              }}
-            />
-            <motion.span
-              className="h-[2.5px] w-6"
-              animate={{
-                backgroundColor: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
-              }}
-            />
-            <motion.span
-              className="h-[2.5px] w-6"
-              animate={{
-                backgroundColor: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
-              }}
-            />
-          </motion.button>
         </div>
       </motion.div>
 
