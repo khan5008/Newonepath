@@ -671,13 +671,17 @@ export default function Industries() {
 
               {/* Scrollable Content */}
               <div className="overflow-y-auto h-[calc(98vh-100px)] px-8 py-8">
-                {/* Hero Image */}
+                {/* Hero Image with Video */}
                 <div className="relative w-full h-96 md:h-[28rem] rounded-2xl overflow-hidden mb-8">
-                  <img
-                    src="/assets/services.jpg"
-                    alt={industryData[selectedIndustry as keyof typeof industryData].title}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-cover"
-                  />
+                  >
+                    <source src="/assets/THE GLOBAL V.mp4" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-6 left-6">
                     <h3

@@ -84,11 +84,33 @@ export default function CaseStudiesSection() {
             >
               {/* Image Container - clean rounded corners */}
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl mb-6 bg-gray-100">
-                <img
-                  src={study.image}
-                  alt={study.category}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                {index === 0 ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  >
+                    <source src="/assets/Mysalah.mp4" type="video/mp4" />
+                  </video>
+                ) : index === 1 ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  >
+                    <source src="/assets/THE GLOBAL V.mp4" type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={study.image}
+                    alt={study.category}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                )}
               </div>
 
               {/* Content Section - minimal and clean */}

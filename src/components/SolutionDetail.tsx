@@ -139,7 +139,7 @@ export default function SolutionDetail() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover"
                   >
-                    <source src="/assets/baisierweb.mp4" type="video/mp4" />
+                    <source src="/assets/THE GLOBAL V.mp4" type="video/mp4" />
                   </video>
                 </div>
               </div>

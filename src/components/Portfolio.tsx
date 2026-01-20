@@ -262,11 +262,33 @@ export default function Portfolio() {
               >
                 {/* Image */}
                 <div className="relative overflow-hidden mb-6">
-                  <img
-                    src={study.image}
-                    alt={study.title}
-                    className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  {index === 0 ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    >
+                      <source src="/assets/MySalah.mp4" type="video/mp4" />
+                    </video>
+                  ) : index === 1 ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    >
+                      <source src="/assets/THE GLOBAL V.mp4" type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
                 </div>
 
                 {/* Content */}

@@ -248,6 +248,11 @@ export default function Header() {
                                       <li
                                         key={item}
                                         className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
+                                        onClick={() => {
+                                          if (item === "Brand Consulting") {
+                                            window.location.href = "/brandconsulting";
+                                          }
+                                        }}
                                       >
                                         {item}
                                       </li>
