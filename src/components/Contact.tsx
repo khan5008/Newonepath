@@ -284,13 +284,21 @@ export default function Contact() {
                   <p>Chowki, Hyderabad, Telangana</p>
                   <p>500008, India</p>
                 </div>
-                <button className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
+                <motion.a
+                  href="https://maps.google.com/?q=Level+1+Mirza+Arcade+Building+B-1+21/148+Shaikpet+Surya+Nagar+Toli+Chowki+Hyderabad+Telangana+500008+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
-                  Get Directions
-                </button>
+                  <span className="font-medium">Get Directions</span>
+                </motion.a>
               </div>
 
               {/* Contact Cards - Two on top, one centered below */}
@@ -371,13 +379,21 @@ export default function Contact() {
                   <p>Chowki, Hyderabad, Telangana</p>
                   <p>500008, India</p>
                 </div>
-                <button className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
+                <motion.a
+                  href="https://maps.google.com/?q=Level+1+Mirza+Arcade+Building+B-1+21/148+Shaikpet+Surya+Nagar+Toli+Chowki+Hyderabad+Telangana+500008+UK"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-3 rounded-full hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
-                  Get Directions
-                </button>
+                  <span className="font-medium">Get Directions</span>
+                </motion.a>
               </div>
 
               {/* Contact Cards - Two on top, one centered below */}
@@ -462,13 +478,21 @@ export default function Contact() {
                   <p>Chowki, Hyderabad, Telangana</p>
                   <p>500008, India</p>
                 </div>
-                <button className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
+                <motion.a
+                  href="https://maps.google.com/?q=Level+1+Mirza+Arcade+Building+B-1+21/148+Shaikpet+Surya+Nagar+Toli+Chowki+Hyderabad+Telangana+500008+Saudi+Arabia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-full hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
-                  Get Directions
-                </button>
+                  <span className="font-medium">Get Directions</span>
+                </motion.a>
               </div>
 
               {/* Contact Cards - Two on top, one centered below */}
@@ -555,13 +579,21 @@ export default function Contact() {
                   <p>Chowki, Hyderabad, Telangana</p>
                   <p>500008, India</p>
                 </div>
-                <button className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
+                <motion.a
+                  href="https://maps.google.com/?q=Level+1+Mirza+Arcade+Building+B-1+21/148+Shaikpet+Surya+Nagar+Toli+Chowki+Hyderabad+Telangana+500008+Canada"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white px-6 py-3 rounded-full hover:from-pink-600 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" fill="none"/>
                   </svg>
-                  Get Directions
-                </button>
+                  <span className="font-medium">Get Directions</span>
+                </motion.a>
               </div>
 
               {/* Contact Cards - Two on top, one centered below */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const caseStudies = [
   {
@@ -42,6 +43,12 @@ const caseStudies = [
 ];
 
 export default function CaseStudiesSection() {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push('/portfoliodetail');
+  };
+
   return (
     <section className="bg-white py-20 md:py-32 min-h-screen" data-section="case-studies" data-header-color="white">
       <div className="max-w-full mx-auto px-6 md:px-12 lg:px-20">
@@ -73,6 +80,7 @@ export default function CaseStudiesSection() {
                 ease: "easeOut" 
               }}
               className="group cursor-pointer"
+              onClick={handleCardClick}
             >
               {/* Image Container - clean rounded corners */}
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl mb-6 bg-gray-100">

@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 
 const heroSlides = [
   {
-    id: "hero1",
-    video: "/assets/hero1.mp4",
+    id: "home",
+    video: "/assets/home.mp4",
     focus: "60% center",
     tag: "Technology & Experiences",
     title: "We build digital products that move people.",
@@ -47,16 +47,21 @@ export default function HeroScreen() {
   // Black overlay that increases as we scroll
   const blackOverlay = useTransform(scrollYProgress, [0, 0.3, 0.7], [0, 0.3, 1]);
 
-  // Rotate hero background + text every 6 seconds
+  // Rotate hero background + text based on video completion
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+  const handleVideoEnd = () => {
+    setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
+  };
 
-    return () => clearInterval(id);
-  }, []);
+  // Fallback timer in case video events don't fire
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 10000); // 10 seconds fallback
+
+    return () => clearTimeout(fallbackTimer);
+  }, [currentIndex]);
 
   const currentSlide = heroSlides[currentIndex];
   const nextSlide = heroSlides[(currentIndex + 1) % heroSlides.length];
@@ -77,9 +82,9 @@ export default function HeroScreen() {
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
             src={currentSlide.video}
             autoPlay
-            loop
             muted
             playsInline
+            onEnded={handleVideoEnd}
             style={{ objectPosition: currentSlide.focus, width: '100%', height: '100%' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
