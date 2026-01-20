@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import FooterSection from "./FooterSection";
 
 export default function About() {

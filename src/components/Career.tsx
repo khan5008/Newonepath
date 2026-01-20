@@ -55,7 +55,7 @@ export default function Career() {
               className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-lg"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
-              At One Path Solutions , we are all about creating a habitat that lets you grow stronger roots and larger branches. Together let's make a fruitful journey!
+              At One Path Solutions , we are all about creating a habitat that lets you grow stronger roots and larger branches. Together let&apos;s make a fruitful journey!
             </p>
 
             <motion.button

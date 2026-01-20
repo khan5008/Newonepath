@@ -70,7 +70,6 @@ export default function OurSolutionsSection() {
           <div className="flex flex-wrap justify-center gap-4">
             {solutions.map((label, index) => (
               <motion.button
-                // eslint-disable-next-line react/no-array-index-key
                 key={`${label}-${index}`}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}

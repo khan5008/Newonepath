@@ -168,7 +168,7 @@ export default function Portfolio() {
                           style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                         />
                         <div className="max-h-80 overflow-y-auto">
-                          {industries.map((industry, index) => (
+                          {industries.map((industry) => (
                             <label
                               key={industry}
                               className="flex items-center gap-3 py-3 px-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
@@ -223,7 +223,7 @@ export default function Portfolio() {
                           style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                         />
                         <div className="max-h-80 overflow-y-auto">
-                          {expertise.map((skill, index) => (
+                          {expertise.map((skill) => (
                             <label
                               key={skill}
                               className="flex items-center gap-3 py-3 px-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"

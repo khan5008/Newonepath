@@ -69,7 +69,6 @@ export default function FooterSection() {
         {/* Columns */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 text-sm">
           {[1, 2, 3, 4].map((col) => (
-            // eslint-disable-next-line react/no-array-index-key
             <div key={col} className="space-y-3">
               <h3
                 className="text-[14px] font-semibold tracking-wide"

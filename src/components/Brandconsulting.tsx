@@ -23,7 +23,7 @@ export default function Brandconsulting() {
     {
       id: "quality-pricing",
       title: "Quality and Pricing Power",
-      content: "Establishing premium positioning through quality perception and strategic pricing that reflects your brand's true value in the marketplace."
+      content: "Establishing premium positioning through quality perception and strategic pricing that reflects your brand&apos;s true value in the marketplace."
     },
     {
       id: "customer-effectiveness",
@@ -33,7 +33,7 @@ export default function Brandconsulting() {
     {
       id: "brand-identity",
       title: "Brand Identity",
-      content: "Creating a cohesive visual and verbal identity that communicates your brand's unique value proposition and differentiates you from competitors."
+      content: "Creating a cohesive visual and verbal identity that communicates your brand&apos;s unique value proposition and differentiates you from competitors."
     },
     {
       id: "market-research",
@@ -214,7 +214,7 @@ export default function Brandconsulting() {
                   className="text-base text-gray-700 leading-relaxed mb-8"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
-                  At Webandcrafts, our branding consultancy services are designed to help organisations create a completely unique and remarkable brand identity. Our group of specialists works with you to develop your brand's goals, audience, and competitive landscape to create a whole brand approach that effectively communicates your message to the target audience. Whether you're looking to improve or revamp a current one, we're right here to help you create a robust brand identity and connect to your target group on a deeper level.
+                  At Webandcrafts, our branding consultancy services are designed to help organisations create a completely unique and remarkable brand identity. Our group of specialists works with you to develop your brand&apos;s goals, audience, and competitive landscape to create a whole brand approach that effectively communicates your message to the target audience. Whether you&apos;re looking to improve or revamp a current one, we&apos;re right here to help you create a robust brand identity and connect to your target group on a deeper level.
                 </p>
 
                 <motion.button
@@ -223,7 +223,7 @@ export default function Brandconsulting() {
                   className="inline-flex items-center gap-2 text-blue-500 font-medium text-base border-2 border-blue-500 rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
-                  <span>Let's talk</span>
+                  <span>Let&apos;s talk</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

@@ -160,7 +160,6 @@ export default function HeroScreen() {
                 {/* Internal slider-style indicator synced with slides */}
                 <div className="mt-2 flex gap-1.5">
                   {[0, 1, 2].map((index) => (
-                    // eslint-disable-next-line react/no-array-index-key
                     <span
                       key={index}
                       className={`h-[2px] flex-1 rounded-full ${

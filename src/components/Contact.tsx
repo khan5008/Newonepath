@@ -53,7 +53,7 @@ export default function Contact() {
                   className="text-2xl md:text-3xl text-gray-700 font-light"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
-                  Let's make it happen!
+                  Let&apos;s make it happen!
                 </p>
               </div>
 

@@ -15,7 +15,7 @@ export default function PortfolioDetail() {
     }, 5000); // Change every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
   const services = [
     "Student Information System",
@@ -69,7 +69,7 @@ export default function PortfolioDetail() {
               className="text-4xl md:text-5xl lg:text-6xl text-white font-light leading-tight"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
-              Basaier's Digital Takeoff With Web App Portal
+              Basaier&apos;s Digital Takeoff With Web App Portal
             </h1>
           </motion.div>
 

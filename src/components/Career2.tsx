@@ -37,41 +37,14 @@ export default function Career2() {
     { category: "Marketing", count: 3 },
   ];
 
-  const lifePhotos = [
-    "/assets/port1.jpg",
-    "/assets/port2.jpg",
-    "/assets/port4.jpg",
-    "/assets/port3.jpg",
-    "/assets/port5.jpg",
-    "/assets/port2.jpg",
-  ];
-
-  const clients = [
-    { name: "IKEA", logo: "IKEA" },
-    { name: "Marriott", logo: "Marriott" },
-    { name: "Garmin", logo: "GARMIN" },
-    { name: "Federal Bank", logo: "FEDERAL BANK" },
-    { name: "Synthite", logo: "Synthite" },
-    { name: "Alyasra", logo: "alyasra" },
-    { name: "GEOJIT", logo: "GEOJIT" },
-    { name: "Nestle", logo: "Nestlé" },
-    { name: "Microsoft", logo: "Microsoft" },
-    { name: "Apple", logo: "Apple" },
-    { name: "Google", logo: "Google" },
-    { name: "Amazon", logo: "Amazon" },
-    { name: "Tesla", logo: "Tesla" },
-    { name: "Netflix", logo: "Netflix" },
-    { name: "Spotify", logo: "Spotify" },
-    { name: "Adobe", logo: "Adobe" },
-    { name: "Samsung", logo: "Samsung" },
-    { name: "Sony", logo: "Sony" },
-    { name: "Nike", logo: "Nike" },
-    { name: "Coca Cola", logo: "Coca Cola" },
-    { name: "McDonald's", logo: "McDonald's" },
-    { name: "Starbucks", logo: "Starbucks" },
-    { name: "BMW", logo: "BMW" },
-    { name: "Mercedes", logo: "Mercedes" },
-  ];
+  // const lifePhotos = [
+  //   "/assets/port1.jpg",
+  //   "/assets/port2.jpg",
+  //   "/assets/port4.jpg",
+  //   "/assets/port3.jpg",
+  //   "/assets/port5.jpg",
+  //   "/assets/port2.jpg",
+  // ];
 
   const insights = [
     {

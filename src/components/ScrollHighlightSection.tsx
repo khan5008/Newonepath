@@ -7,7 +7,7 @@ const lines = [
   "We empower people and businesses",
   "through technology that creates seamless solutions",
   "simplifying challenges and sparking innovation",
-  "to help you shape what’s next",
+  "to help you shape what's next",
 ];
 
 export default function ScrollHighlightSection() {
@@ -30,8 +30,12 @@ export default function ScrollHighlightSection() {
     [0, 1, 1, 0],
   );
 
-  const allWords = lines.join(" ").split(" ");
-  let globalIndex = 0;
+  // Create a single transform for the entire text animation
+  const textOpacity = useTransform(
+    smoothProgress,
+    [0, 0.2, 0.8, 1],
+    [0.3, 1, 1, 0.3],
+  );
 
   return (
     <section
@@ -43,47 +47,34 @@ export default function ScrollHighlightSection() {
           style={{ opacity: sectionOpacity }}
           className="mx-auto w-full max-w-[1400px] text-center"
         >
-          <p
-            className="text-[32px] leading-[1.5] md:text-[40px] lg:text-[48px]"
-            style={{
+          <motion.p
+            style={{ 
+              opacity: textOpacity,
               fontFamily: "var(--font-poppins)",
               fontWeight: 200,
             }}
+            className="text-[32px] leading-[1.5] md:text-[40px] lg:text-[48px]"
           >
             {lines.map((line, lineIdx) => (
               <span
                 key={lineIdx}
                 className="block mb-4 whitespace-nowrap"
               >
-                {line.split(" ").map((word, wordIdx) => {
-                  const start = (globalIndex / allWords.length) * 0.4;
-                  const end = Math.min(1, start + 0.12);
-
-                  const opacity = useTransform(
-                    smoothProgress,
-                    [start, end],
-                    [0.18, 1],
-                  );
-
-                  globalIndex++;
-
-                  return (
-                    <motion.span
-                      key={`${word}-${wordIdx}`}
-                      style={{ opacity }}
-                      whileHover={{
-                        scale: 1.02,
-                        textShadow: "0 0 18px rgba(255,255,255,0.35)",
-                      }}
-                      className="mr-[0.2em] inline-block"
-                    >
-                      {word}
-                    </motion.span>
-                  );
-                })}
+                {line.split(" ").map((word, wordIdx) => (
+                  <motion.span
+                    key={`${word}-${wordIdx}`}
+                    whileHover={{
+                      scale: 1.02,
+                      textShadow: "0 0 18px rgba(255,255,255,0.35)",
+                    }}
+                    className="mr-[0.2em] inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </span>
             ))}
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>

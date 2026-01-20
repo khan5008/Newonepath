@@ -487,7 +487,7 @@ export default function Industries() {
                 className="inline-flex items-center gap-2 text-blue-500 font-medium text-base border-2 border-blue-500 rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
-                <span>Let's talk</span>
+                <span>Let&apos;s talk</span>
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
             </motion.div>
@@ -783,7 +783,7 @@ export default function Industries() {
                     className="inline-flex items-center gap-2 rounded-lg border-2 border-blue-500 text-blue-500 px-6 py-3 text-base font-medium hover:bg-blue-50 transition-colors"
                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   >
-                    <span>Let's talk</span>
+                    <span>Let&apos;s talk</span>
                     <ArrowRight className="w-5 h-5" />
                   </motion.button>
                 </div>

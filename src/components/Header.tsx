@@ -650,7 +650,7 @@ export default function Header() {
             {searchQuery && (
               <div className="px-6 md:px-12 lg:px-20 pb-6 border-t bg-gray-50">
                 <div className="max-w-2xl mx-auto pt-4">
-                  <p className="text-gray-600 mb-4">Search results for "{searchQuery}"</p>
+                  <p className="text-gray-600 mb-4">Search results for &quot;{searchQuery}&quot;</p>
                   <div className="space-y-3">
                     <div className="p-4 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
                       <h3 className="font-medium text-black">Sample Result 1</h3>

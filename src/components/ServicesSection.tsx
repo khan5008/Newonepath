@@ -191,8 +191,8 @@ export default function ServicesSection() {
               </div>
               <p className="text-gray-300 text-xl md:text-2xl leading-relaxed mb-12 font-light">
                 Intelligent design is the essence of nature; 
-                that's our inspiration in crafting 
-                tomorrow's tech realm
+                that&apos;s our inspiration in crafting 
+                tomorrow&apos;s tech realm
               </p>
               <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-lg">
                 <span className="relative">
