@@ -175,21 +175,7 @@ export default function Brandconsulting() {
         </div>
       </div>
 
-      {/* Breadcrumb */}
-      <div className="bg-white py-4 px-6 md:px-12 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <nav className="text-sm text-gray-500">
-            <span>Home</span>
-            <span className="mx-2">/</span>
-            <span>Services</span>
-            <span className="mx-2">/</span>
-            <span>Branding</span>
-            <span className="mx-2">/</span>
-            <span className="text-black">Brand Consulting</span>
-          </nav>
-        </div>
-      </div>
-
+      
       {/* Main Content */}
       <div className="bg-white py-16 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
@@ -214,7 +200,7 @@ export default function Brandconsulting() {
                   className="text-base text-gray-700 leading-relaxed mb-8"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
-                  At Webandcrafts, our branding consultancy services are designed to help organisations create a completely unique and remarkable brand identity. Our group of specialists works with you to develop your brand&apos;s goals, audience, and competitive landscape to create a whole brand approach that effectively communicates your message to the target audience. Whether you&apos;re looking to improve or revamp a current one, we&apos;re right here to help you create a robust brand identity and connect to your target group on a deeper level.
+                 Our branding consultancy services are designed to help organisations create a completely unique and remarkable brand identity. Our group of specialists works with you to develop your brand&apos;s goals, audience, and competitive landscape to create a whole brand approach that effectively communicates your message to the target audience. Whether you&apos;re looking to improve or revamp a current one, we&apos;re right here to help you create a robust brand identity and connect to your target group on a deeper level.
                 </p>
 
                 <motion.button
@@ -260,19 +246,27 @@ export default function Brandconsulting() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
-            {/* Left Side - Image */}
+            {/* Left Side - Video */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9 }}
             >
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src="/assets/solution1.jpg"
-                  alt="Our Process"
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
                   className="w-full h-[500px] object-cover"
-                />
+                >
+                  <source src="/assets/brandconsulting (2).mp4" type="video/mp4" />
+                  <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                    <p className="text-gray-500">Video loading...</p>
+                  </div>
+                </video>
               </div>
             </motion.div>
 

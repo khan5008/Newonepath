@@ -64,7 +64,7 @@ export default function Portfolio() {
     },
     {
       id: 5,
-      image: "/assets/image 3.png",
+      image: "/assets/hajjpathimage.png",
       category: "Healthcare",
       title: "MediCare: Transforming patient care with digital health solutions",
     },

@@ -162,42 +162,42 @@ export default function ServicesSection() {
       {/* Fixed container for all sections - clipped to section bounds */}
       <div ref={fixedContainerRef} className="fixed inset-0 w-full h-screen pointer-events-none opacity-0 invisible" style={{ zIndex: 1, willChange: 'transform' }}>
         
-        {/* Section 1: Design */}
-        <div 
-          ref={section1Ref}
-          className="absolute inset-0 flex items-center overflow-hidden opacity-0 pointer-events-auto"
-        >
-          {/* Full-screen video background - Right side */}
-          <div className="absolute right-0 top-0 w-1/2 h-full overflow-hidden">
-            <video
-              ref={designVideoRef}
-              src="/assets/design.mp4"
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-cover opacity-0 pointer-events-none"
-            />
-          </div>
-          
-          {/* Content - Left side */}
-          <div className="relative z-10 w-1/2 px-8 md:px-16 lg:px-24 flex items-center h-full pointer-events-auto">
-            <div ref={content1Ref} className="max-w-2xl opacity-0">
-              <div className="mb-8">
-                <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-                <h1 className="text-7xl md:text-8xl lg:text-9xl font-extralight text-white mb-8 leading-none tracking-tight">
-                  Design
-                </h1>
-              </div>
-              <p className="text-gray-300 text-xl md:text-2xl leading-relaxed mb-12 font-light">
-                Intelligent design is the essence of nature; 
-                that&apos;s our inspiration in crafting 
-                tomorrow&apos;s tech realm
-              </p>
-              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-lg">
-                <span className="relative">
-                  Learn more
-                  <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
+          {/* Section 1: Design */}
+          <div 
+            ref={section1Ref}
+            className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
+          >
+            {/* Full-screen video background - Right side on desktop, top on mobile */}
+            <div className="absolute lg:right-0 top-0 w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden">
+              <video
+                ref={designVideoRef}
+                src="/assets/design.mp4"
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover opacity-0 pointer-events-none"
+              />
+            </div>
+            
+            {/* Content - Left side on desktop, bottom on mobile */}
+            <div className="relative z-10 w-full lg:w-1/2 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center h-1/2 lg:h-full pointer-events-auto">
+              <div ref={content1Ref} className="max-w-2xl opacity-0 text-center lg:text-left">
+                <div className="mb-4 lg:mb-8">
+                  <div className="w-8 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
+                    Design
+                  </h1>
+                </div>
+                <p className="text-gray-300 text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed mb-6 lg:mb-12 font-light">
+                  Intelligent design is the essence of nature; 
+                  that&apos;s our inspiration in crafting 
+                  tomorrow&apos;s tech realm
+                </p>
+                <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-base lg:text-lg mx-auto lg:mx-0">
+                  <span className="relative">
+                    Learn more
+                    <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
                 </span>
                 <svg 
                   width="24" 
@@ -222,10 +222,10 @@ export default function ServicesSection() {
         {/* Section 2: Build */}
         <div 
           ref={section2Ref}
-          className="absolute inset-0 flex items-center overflow-hidden opacity-0 pointer-events-auto"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
         >
-          {/* Full-screen video background - Left side */}
-          <div className="absolute left-0 top-0 w-1/2 h-full overflow-hidden">
+          {/* Full-screen video background - Left side on desktop, top on mobile */}
+          <div className="absolute lg:left-0 top-0 w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden">
             <video
               ref={buildVideoRef}
               src="/assets/build (2).mp4"
@@ -237,21 +237,21 @@ export default function ServicesSection() {
             />
           </div>
           
-          {/* Content - Right side */}
-          <div className="relative z-10 w-1/2 ml-auto px-8 md:px-16 lg:px-24 flex items-center h-full pointer-events-auto">
-            <div ref={content2Ref} className="max-w-2xl opacity-0">
-              <div className="mb-8">
-                <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-                <h1 className="text-7xl md:text-8xl lg:text-9xl font-extralight text-white mb-8 leading-none tracking-tight">
+          {/* Content - Right side on desktop, bottom on mobile */}
+          <div className="relative z-10 w-full lg:w-1/2 lg:ml-auto px-4 md:px-8 lg:px-16 xl:px-24 flex items-center h-1/2 lg:h-full pointer-events-auto">
+            <div ref={content2Ref} className="max-w-2xl opacity-0 text-center lg:text-left">
+              <div className="mb-4 lg:mb-8">
+                <div className="w-8 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
                   Build
                 </h1>
               </div>
-              <p className="text-gray-300 text-xl md:text-2xl leading-relaxed mb-12 font-light">
+              <p className="text-gray-300 text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed mb-6 lg:mb-12 font-light">
                 Constantly adopting cutting edge technology 
                 for your enterprise to harness its endless 
                 possibilities and leave a global imprint
               </p>
-              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-lg">
+              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-base lg:text-lg mx-auto lg:mx-0">
                 <span className="relative">
                   Learn more
                   <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
@@ -279,10 +279,10 @@ export default function ServicesSection() {
         {/* Section 3: Market */}
         <div 
           ref={section3Ref}
-          className="absolute inset-0 flex items-center overflow-hidden opacity-0"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
         >
-          {/* Full-screen video background - Right side */}
-          <div className="absolute right-0 top-0 w-1/2 h-full">
+          {/* Full-screen video background - Right side on desktop, top on mobile */}
+          <div className="absolute lg:right-0 top-0 w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden">
             <video
               ref={marketVideoRef}
               src="/assets/newmarket.mp4"
@@ -290,25 +290,25 @@ export default function ServicesSection() {
               loop
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover opacity-0"
+              className="w-full h-full object-cover opacity-0 pointer-events-none"
             />
           </div>
           
-          {/* Content - Left side */}
-          <div className="relative z-10 w-1/2 px-8 md:px-16 lg:px-24 flex items-center h-full">
-            <div ref={content3Ref} className="max-w-2xl opacity-0">
-              <div className="mb-8">
-                <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-                <h1 className="text-7xl md:text-8xl lg:text-9xl font-extralight text-white mb-8 leading-none tracking-tight">
+          {/* Content - Left side on desktop, bottom on mobile */}
+          <div className="relative z-10 w-full lg:w-1/2 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center h-1/2 lg:h-full pointer-events-auto">
+            <div ref={content3Ref} className="max-w-2xl opacity-0 text-center lg:text-left">
+              <div className="mb-4 lg:mb-8">
+                <div className="w-8 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
                   Market
                 </h1>
               </div>
-              <p className="text-gray-300 text-xl md:text-2xl leading-relaxed mb-12 font-light">
+              <p className="text-gray-300 text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed mb-6 lg:mb-12 font-light">
                 Experts in solving the WHY, WHERE 
                 and HOW of propelling your 
                 business to new frontiers
               </p>
-              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-lg">
+              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-base lg:text-lg mx-auto lg:mx-0">
                 <span className="relative">
                   Learn more
                   <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
@@ -328,7 +328,7 @@ export default function ServicesSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                </button>
+              </button>
             </div>
           </div>
         </div>

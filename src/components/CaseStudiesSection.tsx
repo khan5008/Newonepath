@@ -30,7 +30,7 @@ const caseStudies = [
   },
   {
     id: 5,
-    image: "/assets/Rectangle 88.png",
+    image: "/assets/hajjpathimage.png",
     category: "Healthcare",
     title: "Healthcare platform revolutionizing patient care with seamless digital experience",
   },

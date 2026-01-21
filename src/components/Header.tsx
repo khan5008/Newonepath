@@ -1,6 +1,6 @@
 "use client";
 
-import { PhoneCall, Search, ChevronRight, ArrowRight, X } from "lucide-react";
+import { PhoneCall, Search, ChevronRight, ArrowRight, X, Menu } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -10,6 +10,7 @@ export default function Header() {
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function Header() {
       if (event.key === 'Escape') {
         setIsContactDropdownOpen(false);
         setIsSearchOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -74,425 +76,56 @@ export default function Header() {
     "Contact",
   ];
 
-  const servicesMenu = [
-    {
-      category: "Branding",
-      items: [
-        "Brand Consulting",
-        "Logo Design",
-        "Product Design",
-        "Graphic Design",
-        "2D / 3D Visualization",
-        "Video Creation & Editing",
-      ],
-    },
-    {
-      category: "ERP",
-      items: ["Microsoft Dynamics", "Odoo"],
-    },
-    {
-      category: "Intuitive Design",
-      items: [
-        "UI/UX Design",
-        "Website Design",
-        "Mobile Experience",
-        "Commerce Experience",
-        "Prototypes",
-      ],
-    },
-    {
-      category: "Digital Marketing",
-      items: [
-        "Search Engine Optimization",
-        "Social Media Management",
-        "Performance Marketing",
-        "Content Marketing",
-        "Marketing Automation",
-        "Analytics",
-      ],
-    },
-    {
-      category: "Technology",
-      items: [
-        "AI & Machine Learning",
-        "Data & Analytics",
-        "Web Development",
-        "Mobile App Development",
-        "E-Commerce",
-        "Quality Assurance & Testing",
-        "Cloud Services",
-        "Cyber Security",
-      ],
-    },
-  ];
-
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 lg:px-20 transition-colors duration-300 ${
-        (headerIsWhite || isServicesHovered) ? "py-1" : "py-2"
-      }`}
-      animate={{
-        backgroundColor: headerIsWhite || isServicesHovered ? "white" : "transparent",
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      {/* Logo */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex items-center gap-3"
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 lg:px-20 transition-colors duration-300 ${
+          (headerIsWhite || isServicesHovered) ? "py-2 md:py-1" : "py-3 md:py-2"
+        }`}
+        animate={{
+          backgroundColor: headerIsWhite || isServicesHovered ? "white" : "transparent",
+        }}
+        transition={{ duration: 0.3 }}
       >
-        <motion.img
-          src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo3.png"}
-          alt="OnePath Solutions"
-          className={`w-auto object-contain ${
-            (headerIsWhite || isServicesHovered) 
-              ? "h-14 md:h-16 lg:h-18" 
-              : "h-20 md:h-24 lg:h-28"
-          }`}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}
-        />
-      </motion.div>
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex items-center gap-3 z-10"
+        >
+          <motion.img
+            src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo3.png"}
+            alt="OnePath Solutions"
+            className={`w-auto object-contain ${
+              (headerIsWhite || isServicesHovered) 
+                ? "h-8 md:h-12 lg:h-16" 
+                : "h-10 md:h-16 lg:h-24"
+            }`}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            key={(headerIsWhite || isServicesHovered) ? "logo-colored" : "logo-white"}
+          />
+        </motion.div>
 
-      {/* Center nav items - moved more to the right */}
-      <motion.nav
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-        className="hidden items-center gap-16 text-[18px] font-medium tracking-wide md:flex md:ml-auto md:mr-8"
-        style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-      >
-        {navItems.map((item, index) => {
-          if (item === "Services") {
-            return (
-              <div
-                key={item}
-                className="relative"
-                onMouseEnter={() => setIsServicesHovered(true)}
-                onMouseLeave={() => setIsServicesHovered(false)}
-              >
-                <motion.a
-                  href="/services"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0,
-                    color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.15 + index * 0.05,
-                    ease: "easeOut",
-                  }}
-                  className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-                >
-                  {item}
-                </motion.a>
-
-                {/* Services Dropdown */}
-                <AnimatePresence>
-                  {isServicesHovered && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="fixed left-0 right-0 top-[72px] w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-50"
-                      style={{ marginLeft: 0, marginRight: 0 }}
-                      onMouseEnter={() => setIsServicesHovered(true)}
-                      onMouseLeave={() => setIsServicesHovered(false)}
-                    >
-                      <div className="w-full px-8 md:px-12 lg:px-20 py-16">
-                        <div className="grid grid-cols-12 gap-12 items-start">
-                          {/* Left Side - Large Heading + Button */}
-                          <div className="col-span-12 lg:col-span-4 space-y-8">
-                            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
-                              Building
-                              <br />
-                              strong
-                              <br />
-                              Capabilities to
-                              <br />
-                              Empower Your
-                              <br />
-                              Brand
-                            </h2>
-                            <a href="/services" className="flex items-center gap-4 group cursor-pointer">
-                              <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                                <ArrowRight className="h-6 w-6 text-white" />
-                              </div>
-                              <span className="text-white text-sm md:text-base font-normal">
-                                Go to Overview
-                              </span>
-                            </a>
-                          </div>
-
-                          {/* Right Side - Service Categories */}
-                          <div className="col-span-12 lg:col-span-8">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                              {/* Column 1 */}
-                              <div className="space-y-10">
-                                <div className="space-y-4">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Branding
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    {servicesMenu[0].items.map((item) => (
-                                      <li
-                                        key={item}
-                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                        onClick={() => {
-                                          if (item === "Brand Consulting") {
-                                            window.location.href = "/brandconsulting";
-                                          }
-                                        }}
-                                      >
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-
-                                <div className="space-y-4">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      ERP
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    {servicesMenu[1].items.map((item) => (
-                                      <li
-                                        key={item}
-                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      >
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </div>
-
-                              {/* Column 2 */}
-                              <div className="space-y-10">
-                                <div className="space-y-4">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Intuitive Design
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    {servicesMenu[2].items.map((item) => (
-                                      <li
-                                        key={item}
-                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      >
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-
-                                <div className="space-y-4">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Digital Marketing
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    {servicesMenu[3].items.map((item) => (
-                                      <li
-                                        key={item}
-                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      >
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </div>
-
-                              {/* Column 3 */}
-                              <div className="space-y-10">
-                                <div className="space-y-4">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Technology
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    {servicesMenu[4].items.map((item) => (
-                                      <li
-                                        key={item}
-                                        className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      >
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          }
-          if (item === "Contact") {
-            return (
-              <motion.a
-                key={item}
-                href="/contact"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.15 + index * 0.05,
-                  ease: "easeOut",
-                }}
-                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                {item}
-              </motion.a>
-            );
-          }
-          if (item === "About") {
-            return (
-              <motion.a
-                key={item}
-                href="/about"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.15 + index * 0.05,
-                  ease: "easeOut",
-                }}
-                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                {item}
-              </motion.a>
-            );
-          }
-          if (item === "Solutions") {
-            return (
-              <motion.a
-                key={item}
-                href="/solutions"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.15 + index * 0.05,
-                  ease: "easeOut",
-                }}
-                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                {item}
-              </motion.a>
-            );
-          }
-          if (item === "Works") {
-            return (
-              <motion.a
-                key={item}
-                href="/portfolio"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.15 + index * 0.05,
-                  ease: "easeOut",
-                }}
-                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                {item}
-              </motion.a>
-            );
-          }
-          if (item === "Industries") {
-            return (
-              <motion.a
-                key={item}
-                href="/industries"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.15 + index * 0.05,
-                  ease: "easeOut",
-                }}
-                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                {item}
-              </motion.a>
-            );
-          }
-          if (item === "Careers") {
-            return (
-              <motion.a
-                key={item}
-                href="/career2"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.15 + index * 0.05,
-                  ease: "easeOut",
-                }}
-                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                {item}
-              </motion.a>
-            );
-          }
-          return (
-            <motion.button
+        {/* Desktop Navigation - Hidden on mobile */}
+        <motion.nav
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="hidden lg:flex items-center gap-16 text-[18px] font-medium tracking-wide"
+          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+        >
+          {navItems.map((item, index) => (
+            <motion.a
               key={item}
+              href={item === "Services" ? "/services" : 
+                    item === "Solutions" ? "/solutions" :
+                    item === "Industries" ? "/industries" :
+                    item === "Works" ? "/portfolio" :
+                    item === "About" ? "/about" :
+                    item === "Careers" ? "/career2" :
+                    item === "Contact" ? "/contact" : "#"}
               initial={{ opacity: 0, y: -10 }}
               animate={{ 
                 opacity: 1, 
@@ -508,27 +141,25 @@ export default function Header() {
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
               {item}
-            </motion.button>
-          );
-        })}
-      </motion.nav>
+            </motion.a>
+          ))}
+        </motion.nav>
 
-      {/* Right side actions */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        className="flex items-center gap-8 text-sm"
-      >
-        <div className="flex items-center gap-10">
-          {/* Phone/Contact Dropdown */}
-          <div className="relative">
+        {/* Mobile Icons - Always visible */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="flex items-center gap-3 md:gap-4 z-10"
+        >
+          {/* Desktop Contact Dropdown - Hidden on mobile */}
+          <div className="relative hidden lg:block">
             <motion.button
               onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
               animate={{
                 color: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
               }}
-              className="hidden md:inline-block contact-trigger"
+              className="contact-trigger p-2 hover:bg-black/10 rounded-full transition-colors"
             >
               <PhoneCall className="h-5 w-5" />
             </motion.button>
@@ -572,23 +203,35 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          {/* Search */}
+          {/* Mobile Contact Icon - Visible only on mobile */}
+          <motion.a
+            href="tel:+914802733555"
+            animate={{
+              color: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
+            }}
+            className="lg:hidden p-2 hover:bg-black/10 rounded-full transition-colors"
+          >
+            <PhoneCall className="h-5 w-5" />
+          </motion.a>
+
+          {/* Search Icon - Always visible */}
           <motion.button
             onClick={() => setIsSearchOpen(true)}
             animate={{
               color: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
             }}
+            className="p-2 hover:bg-black/10 rounded-full transition-colors"
           >
             <Search className="h-5 w-5" />
           </motion.button>
 
-          {/* Save/Bookmark */}
+          {/* Saved Icon - Always visible */}
           <motion.a
             href="/saved"
             animate={{
-              fill: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
-              stroke: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
+              color: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
             }}
+            className="transition-colors duration-300 p-2 hover:bg-black/10 rounded-full"
           >
             <svg
               width="20"
@@ -604,10 +247,21 @@ export default function Header() {
               />
             </svg>
           </motion.a>
-        </div>
-      </motion.div>
 
-      {/* Search Overlay - Header Only */}
+          {/* Mobile Menu Button - Visible only on mobile */}
+          <motion.button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            animate={{
+              color: (headerIsWhite || isServicesHovered) ? "#000000" : "#ffffff",
+            }}
+            className="lg:hidden p-2 hover:bg-black/10 rounded-full transition-colors"
+          >
+            <Menu className="h-6 w-6" />
+          </motion.button>
+        </motion.div>
+      </motion.header>
+
+      {/* Search Overlay */}
       <AnimatePresence>
         {isSearchOpen && (
           <motion.div
@@ -616,23 +270,22 @@ export default function Header() {
             exit={{ opacity: 0 }}
             className="fixed top-0 left-0 right-0 bg-white z-50 shadow-lg"
           >
-            {/* Search Header */}
-            <div className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-4">
+            <div className="flex items-center justify-between px-4 md:px-6 lg:px-20 py-4">
               <img
                 src="/assets/logo.png"
                 alt="OnePath Solutions"
-                className="h-12 w-auto md:h-14 lg:h-16"
+                className="h-8 w-auto md:h-12 lg:h-14"
               />
               
-              <div className="flex-1 max-w-2xl mx-8">
+              <div className="flex-1 max-w-2xl mx-4 md:mx-8">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Search className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Type to search..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 text-lg border-2 border-black rounded-xl focus:outline-none focus:border-black"
+                    className="w-full pl-10 md:pl-12 pr-4 py-2 md:py-3 text-base md:text-lg border-2 border-black rounded-xl focus:outline-none focus:border-black"
                     autoFocus
                   />
                 </div>
@@ -642,31 +295,87 @@ export default function Header() {
                 onClick={() => setIsSearchOpen(false)}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
               >
-                <X className="h-6 w-6 text-gray-600" />
+                <X className="h-5 w-5 md:h-6 md:w-6 text-gray-600" />
               </button>
             </div>
-
-            {/* Search Results */}
-            {searchQuery && (
-              <div className="px-6 md:px-12 lg:px-20 pb-6 border-t bg-gray-50">
-                <div className="max-w-2xl mx-auto pt-4">
-                  <p className="text-gray-600 mb-4">Search results for &quot;{searchQuery}&quot;</p>
-                  <div className="space-y-3">
-                    <div className="p-4 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                      <h3 className="font-medium text-black">Sample Result 1</h3>
-                      <p className="text-sm text-gray-600 mt-1">Description of the search result...</p>
-                    </div>
-                    <div className="p-4 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                      <h3 className="font-medium text-black">Sample Result 2</h3>
-                      <p className="text-sm text-gray-600 mt-1">Description of the search result...</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between p-6 border-b">
+                <img
+                  src="/assets/logo.png"
+                  alt="OnePath Solutions"
+                  className="h-10 w-auto"
+                />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X className="h-6 w-6 text-gray-600" />
+                </button>
+              </div>
+
+              {/* Mobile Menu Content */}
+              <div className="p-6 space-y-6">
+                {/* Navigation Links */}
+                <nav className="space-y-4">
+                  {navItems.map((item) => (
+                    <a
+                      key={item}
+                      href={item === "Services" ? "/services" : 
+                            item === "Solutions" ? "/solutions" :
+                            item === "Industries" ? "/industries" :
+                            item === "Works" ? "/portfolio" :
+                            item === "About" ? "/about" :
+                            item === "Careers" ? "/career2" :
+                            item === "Contact" ? "/contact" : "#"}
+                      className="block text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </nav>
+
+                {/* Contact Info */}
+                <div className="pt-6 border-t space-y-4">
+                  <h3 className="text-lg font-semibold text-gray-900">Get in Touch</h3>
+                  <a
+                    href="tel:+914802733555"
+                    className="flex items-center gap-3 text-blue-600 hover:text-blue-700 transition-colors"
+                  >
+                    <PhoneCall className="h-5 w-5" />
+                    <span className="font-medium">+91 480 2733 555</span>
+                  </a>
+                  <p className="text-sm text-gray-600">
+                    Available 24/7 for business inquiries
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
