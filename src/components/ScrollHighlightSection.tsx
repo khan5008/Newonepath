@@ -42,7 +42,7 @@ export default function ScrollHighlightSection() {
       ref={containerRef}
       className="relative min-h-[150vh] md:min-h-[200vh] bg-black text-white -mt-1"
     >
-      <div className="sticky top-0 flex min-h-screen items-center justify-center px-4 md:px-8">
+      <div className="sticky top-0 flex min-h-screen items-center justify-center px-6 md:px-8 py-8 md:py-0">
         <motion.div
           style={{ opacity: sectionOpacity }}
           className="mx-auto w-full max-w-[1400px] text-center"
@@ -53,7 +53,7 @@ export default function ScrollHighlightSection() {
               fontFamily: "var(--font-poppins)",
               fontWeight: 200,
             }}
-            className="text-[20px] leading-[1.4] md:text-[32px] md:leading-[1.5] lg:text-[40px] xl:text-[48px]"
+            className="text-[16px] leading-[1.3] md:text-[24px] md:leading-[1.4] lg:text-[32px] lg:leading-[1.5] xl:text-[40px] 2xl:text-[48px]"
           >
             {lines.map((line, lineIdx) => (
               <span
@@ -67,7 +67,7 @@ export default function ScrollHighlightSection() {
                       scale: 1.02,
                       textShadow: "0 0 18px rgba(255,255,255,0.35)",
                     }}
-                    className="mr-[0.2em] inline-block"
+                    className="mr-[0.15em] md:mr-[0.2em] inline-block"
                   >
                     {word}
                   </motion.span>

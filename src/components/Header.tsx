@@ -108,50 +108,273 @@ export default function Header() {
           />
         </motion.div>
 
-        {/* Desktop Navigation - Hidden on mobile */}
-        <motion.nav
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="hidden lg:flex items-center gap-16 text-[18px] font-medium tracking-wide"
-          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-        >
-          {navItems.map((item, index) => (
-            <motion.a
-              key={item}
-              href={item === "Services" ? "/services" : 
-                    item === "Solutions" ? "/solutions" :
-                    item === "Industries" ? "/industries" :
-                    item === "Works" ? "/portfolio" :
-                    item === "About" ? "/about" :
-                    item === "Careers" ? "/career2" :
-                    item === "Contact" ? "/contact" : "#"}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ 
-                opacity: 1, 
-                y: 0,
-                color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
-              }}
-              transition={{
-                duration: 0.4,
-                delay: 0.15 + index * 0.05,
-                ease: "easeOut",
-              }}
-              className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
-              style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-            >
-              {item}
-            </motion.a>
-          ))}
+
+        {/* Right Side Container - Navigation + Icons */}
+        <div className="flex items-center gap-12 lg:gap-16 xl:gap-20">
+          {/* Desktop Navigation - Hidden on mobile */}
+          <motion.nav
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="hidden lg:flex items-center gap-12 xl:gap-16 text-[18px] font-medium tracking-wide"
+            style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+          >
+          {navItems.map((item, index) => {
+            if (item === "Services") {
+              return (
+                <div
+                  key={item}
+                  className="relative"
+                  onMouseEnter={() => setIsServicesHovered(true)}
+                  onMouseLeave={() => setIsServicesHovered(false)}
+                >
+                  <motion.a
+                    href="/services"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0,
+                      color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.15 + index * 0.05,
+                      ease: "easeOut",
+                    }}
+                    className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                    style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                  >
+                    {item}
+                  </motion.a>
+
+                  {/* Services Dropdown */}
+                  <AnimatePresence>
+                    {isServicesHovered && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed left-0 right-0 top-[72px] w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-[60]"
+                        style={{ marginLeft: 0, marginRight: 0 }}
+                        onMouseEnter={() => setIsServicesHovered(true)}
+                        onMouseLeave={() => setIsServicesHovered(false)}
+                      >
+                        <div className="w-full px-8 md:px-12 lg:px-20 py-16">
+                          <div className="grid grid-cols-12 gap-12 items-start">
+                            {/* Left Side - Large Heading + Button */}
+                            <div className="col-span-12 lg:col-span-4 space-y-8">
+                              <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
+                                Building
+                                <br />
+                                strong
+                                <br />
+                                Capabilities to
+                                <br />
+                                Empower Your
+                                <br />
+                                Brand
+                              </h2>
+                              <a href="/services" className="flex items-center gap-4 group cursor-pointer">
+                                <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                                  <ArrowRight className="h-6 w-6 text-white" />
+                                </div>
+                                <span className="text-white text-sm md:text-base font-normal">
+                                  Go to Overview
+                                </span>
+                              </a>
+                            </div>
+
+                            {/* Right Side - Service Categories */}
+                            <div className="col-span-12 lg:col-span-8">
+                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                                {/* Column 1 - Branding */}
+                                <div className="space-y-6">
+                                  <div className="flex items-center gap-2 group">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
+                                      Branding
+                                    </h3>
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                  </div>
+                                  <ul className="space-y-3">
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/brandconsulting">Brand Consulting</a>
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Logo Design
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Product Design
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Graphic Design
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      2D / 3D Visualization
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Video Creation & Editing
+                                    </li>
+                                  </ul>
+
+                                  {/* ERP Section - moved under Branding */}
+                                  <div className="space-y-6 pt-6 border-t border-white/10">
+                                    <div className="flex items-center gap-2 group">
+                                      <h3 className="text-white text-sm md:text-base font-semibold">
+                                        ERP
+                                      </h3>
+                                      <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                    </div>
+                                    <ul className="space-y-3">
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Microsoft Dynamics
+                                      </li>
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Odoo
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+
+                                {/* Column 2 - Intuitive Design */}
+                                <div className="space-y-6">
+                                  <div className="flex items-center gap-2 group">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
+                                      Intuitive Design
+                                    </h3>
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                  </div>
+                                  <ul className="space-y-3">
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      UI/UX Design
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Website Design
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Mobile Experience
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Commerce Experience
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Prototypes
+                                    </li>
+                                  </ul>
+
+                                  {/* Digital Marketing Section - moved under Intuitive Design */}
+                                  <div className="space-y-6 pt-6 border-t border-white/10">
+                                    <div className="flex items-center gap-2 group">
+                                      <h3 className="text-white text-sm md:text-base font-semibold">
+                                        Digital Marketing
+                                      </h3>
+                                      <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                    </div>
+                                    <ul className="space-y-3">
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Search Engine Optimization
+                                      </li>
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Social Media Management
+                                      </li>
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Performance Marketing
+                                      </li>
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Content Marketing
+                                      </li>
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Marketing Automation
+                                      </li>
+                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                        Analytics
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+
+                                {/* Column 3 - Technology */}
+                                <div className="space-y-6">
+                                  <div className="flex items-center gap-2 group">
+                                    <h3 className="text-white text-sm md:text-base font-semibold">
+                                      Technology
+                                    </h3>
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                  </div>
+                                  <ul className="space-y-3">
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      AI & Machine Learning
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Data & Analytics
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Web Development
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Mobile App Development
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      E-Commerce
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Quality Assurance & Testing
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Cloud Services
+                                    </li>
+                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                      Cyber Security
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+
+            return (
+              <motion.a
+                key={item}
+                href={item === "Solutions" ? "/solutions" :
+                      item === "Industries" ? "/industries" :
+                      item === "Works" ? "/portfolio" :
+                      item === "About" ? "/about" :
+                      item === "Careers" ? "/career2" :
+                      item === "Contact" ? "/contact" : "#"}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: (headerIsWhite || isServicesHovered) ? "#000000" : "rgba(255, 255, 255, 0.95)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.15 + index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="bg-transparent transition-colors hover:opacity-100 font-medium text-[18px] tracking-wide"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {item}
+              </motion.a>
+            );
+          })}
         </motion.nav>
 
-        {/* Mobile Icons - Always visible */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex items-center gap-3 md:gap-4 z-10"
-        >
+          {/* Mobile Icons - Always visible */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="flex items-center gap-3 md:gap-4 z-50 relative"
+          >
           {/* Desktop Contact Dropdown - Hidden on mobile */}
           <div className="relative hidden lg:block">
             <motion.button
@@ -172,7 +395,7 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-12 right-0 w-96 bg-white rounded-2xl shadow-2xl p-6 z-50 contact-dropdown"
+                  className="absolute top-12 right-0 w-96 bg-white rounded-2xl shadow-2xl p-6 z-[70] contact-dropdown"
                 >
                   <div className="space-y-4">
                     <h3 className="text-xl font-semibold text-black">Talk to a sales advisor</h3>
@@ -259,6 +482,7 @@ export default function Header() {
             <Menu className="h-6 w-6" />
           </motion.button>
         </motion.div>
+        </div>
       </motion.header>
 
       {/* Search Overlay */}
@@ -268,7 +492,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed top-0 left-0 right-0 bg-white z-50 shadow-lg"
+            className="fixed top-0 left-0 right-0 bg-white z-[60] shadow-lg"
           >
             <div className="flex items-center justify-between px-4 md:px-6 lg:px-20 py-4">
               <img
@@ -309,7 +533,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            className="fixed inset-0 bg-black bg-opacity-50 z-[50] lg:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <motion.div
