@@ -201,19 +201,19 @@ export default function Header() {
                                       <a href="/brandconsulting">Brand Consulting</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Logo Design
+                                      <a href="/logo">Logo Design</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Product Design
+                                      <a href="/product">Product Design</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Graphic Design
+                                      <a href="/graphicdesign">Graphic Design</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      2D / 3D Visualization
+                                      <a href="/2dvisualization">2D / 3D Visualization</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Video Creation & Editing
+                                      <a href="/videocreation">Video Creation & Editing</a>
                                     </li>
                                   </ul>
 
