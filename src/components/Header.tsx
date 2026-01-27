@@ -246,16 +246,16 @@ export default function Header() {
                                   </div>
                                   <ul className="space-y-3">
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      UI/UX Design
+                                      <a href="/uiuxdesign">UI/UX Design</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Website Design
+                                      <a href="/websitedesign">Website Design</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Mobile Experience
+                                      <a href="/mobileexperience">Mobile Experience</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Commerce Experience
+                                      <a href="/commerceexperience">Commerce Experience</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
                                       Prototypes
@@ -303,16 +303,16 @@ export default function Header() {
                                   </div>
                                   <ul className="space-y-3">
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      AI & Machine Learning
+                                      <a href="/aiml">AI & Machine Learning</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Data & Analytics
+                                      <a href="/dataanalytics">Data & Analytics</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Web Development
+                                      <a href="/webdevelopment">Web Development</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Mobile App Development
+                                      <a href="/mobileappdevelopment">Mobile App Development</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
                                       E-Commerce
