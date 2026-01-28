@@ -314,16 +314,28 @@ export default function Header() {
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
                                       <a href="/mobileappdevelopment">Mobile App Development</a>
                                     </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                    <li 
+                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
+                                      onClick={() => window.location.href = '/ecommerce'}
+                                    >
                                       E-Commerce
                                     </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                    <li 
+                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
+                                      onClick={() => window.location.href = '/quality-assurance'}
+                                    >
                                       Quality Assurance & Testing
                                     </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                    <li 
+                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
+                                      onClick={() => window.location.href = '/cloud-services'}
+                                    >
                                       Cloud Services
                                     </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
+                                    <li 
+                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
+                                      onClick={() => window.location.href = '/cyber-security'}
+                                    >
                                       Cyber Security
                                     </li>
                                   </ul>
