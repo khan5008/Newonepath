@@ -227,10 +227,10 @@ export default function Header() {
                                     </div>
                                     <ul className="space-y-3">
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Microsoft Dynamics
+                                        <a href="/microsoftdynamics">Microsoft Dynamics</a>
                                       </li>
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Odoo
+                                        <a href="/odoo">Odoo</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -258,7 +258,7 @@ export default function Header() {
                                       <a href="/commerceexperience">Commerce Experience</a>
                                     </li>
                                     <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      Prototypes
+                                      <a href="/prototype">Prototypes</a>
                                     </li>
                                   </ul>
 
@@ -272,22 +272,22 @@ export default function Header() {
                                     </div>
                                     <ul className="space-y-3">
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Search Engine Optimization
+                                        <a href="/searchengine">Search Engine Optimization</a>
                                       </li>
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Social Media Management
+                                        <a href="/socialmedia">Social Media Management</a>
                                       </li>
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Performance Marketing
+                                        <a href="/performancemarketing">Performance Marketing</a>
                                       </li>
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Content Marketing
+                                        <a href="/contentmarketing">Content Marketing</a>
                                       </li>
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Marketing Automation
+                                        <a href="/marketingautomation">Marketing Automation</a>
                                       </li>
                                       <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        Analytics
+                                        <a href="/analytics">Analytics</a>
                                       </li>
                                     </ul>
                                   </div>

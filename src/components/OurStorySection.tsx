@@ -48,21 +48,22 @@ export default function OurStorySection() {
           </motion.p>
 
           {/* Learn more pill button */}
-          <motion.button
+          <motion.a
+            href="/about"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
             whileHover={{ scale: 1.04, boxShadow: "0 0 30px rgba(255,255,255,0.25)" }}
             whileTap={{ scale: 0.97 }}
-            className="mt-4 inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-2 text-sm md:text-[14px] font-normal text-white shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-lg border border-white/30"
+            className="mt-4 inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-2 text-sm md:text-[14px] font-normal text-white shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-lg border border-white/30 cursor-pointer"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             <span>Learn More</span>
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black text-sm font-semibold">
               ↓
             </span>
-          </motion.button>
+          </motion.a>
         </div>
 
         {/* Right globe / earth video */}

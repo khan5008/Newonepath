@@ -136,10 +136,10 @@ export default function QualityAssurancePage() {
   return (
     <ServicePageTemplate
       title="Quality Assurance & Testing"
-      videoSrc="/assets/build (2).mp4"
+      videoSrc="/assets/QualityAssurance.mp4"
       subtitle="Comprehensive QA Testing Services for Reliable Software"
       description="Our quality assurance and testing services ensure your software applications meet the highest standards of quality, performance, and security. We provide end-to-end testing solutions including manual testing, test automation, performance testing, and security testing. Our experienced QA team uses industry-leading tools and methodologies to identify issues early, reduce costs, and deliver exceptional user experiences."
-      processVideo="/assets/design.mp4"
+      processVideo="/assets/dataanalytics.mp4"
       processItems={processItems}
       relatedIndustries={relatedIndustries}
       caseStudies={caseStudies}

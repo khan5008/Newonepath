@@ -136,10 +136,10 @@ export default function ECommercePage() {
   return (
     <ServicePageTemplate
       title="E-Commerce"
-      videoSrc="/assets/newmarket.mp4"
+      videoSrc="/assets/Eommerce.mp4"
       subtitle="Complete E-Commerce Solutions for Digital Success"
       description="Our comprehensive e-commerce development services help businesses establish and grow their online presence. From custom online stores to marketplace integrations, we create scalable e-commerce solutions that drive sales and enhance customer experience. Whether you're a startup looking to launch your first online store or an established business seeking to optimize your e-commerce platform, we have the expertise to deliver results."
-      processVideo="/assets/market (2).mp4"
+      processVideo="/assets/brandconsulting (2).mp4"
       processItems={processItems}
       relatedIndustries={relatedIndustries}
       caseStudies={caseStudies}

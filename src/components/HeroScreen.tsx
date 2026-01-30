@@ -122,9 +122,12 @@ export default function HeroScreen() {
             </p>
 
             <div className="mt-5 flex items-center gap-5">
-              <button className="rounded-full border border-white/40 bg-white/5 px-5 py-2 text-[13px] md:text-[14px] font-normal text-white shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-lg hover:bg-white/10 hover:border-white/50">
+              <a 
+                href="/about"
+                className="rounded-full border border-white/40 bg-white/5 px-5 py-2 text-[13px] md:text-[14px] font-normal text-white shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-lg hover:bg-white/10 hover:border-white/50 cursor-pointer"
+              >
                 Learn more
-              </button>
+              </a>
             </div>
           </div>
 

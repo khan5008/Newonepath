@@ -139,7 +139,7 @@ export default function CloudServicesPage() {
       videoSrc="/assets/network.mp4"
       subtitle="Scalable Cloud Solutions for Modern Businesses"
       description="Our comprehensive cloud services help organizations leverage the power of cloud computing to achieve greater scalability, flexibility, and cost-efficiency. From cloud migration and architecture design to ongoing management and optimization, we provide end-to-end cloud solutions. Whether you're looking to migrate to the cloud, optimize existing cloud infrastructure, or build cloud-native applications, our expert team delivers reliable and secure cloud solutions."
-      processVideo="/assets/earth.mp4"
+      processVideo="/assets/bg.mp4"
       processItems={processItems}
       relatedIndustries={relatedIndustries}
       caseStudies={caseStudies}

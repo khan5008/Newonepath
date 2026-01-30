@@ -7,31 +7,37 @@ const whatWeDoItems = [
     id: 1,
     title: "Branding",
     image: "/assets/Rectangle 88 (5).png",
+    link: "/services", // Navigate to services page for branding section
   },
   {
     id: 2,
     title: "Intuitive Design",
     image: "/assets/Rectangle 88 (2).png",
+    link: "/services", // Navigate to services page for intuitive design section
   },
   {
     id: 3,
     title: "Technology",
     image: "/assets/Rectangle 88 (3).png",
+    link: "/services", // Navigate to services page for technology section
   },
   {
     id: 4,
     title: "ERP",
     image: "/assets/Rectangle 88 (4).png",
+    link: "/services", // Navigate to services page for ERP section
   },
   {
     id: 5,
     title: "Digital Marketing",
     image: "/assets/Rectangle 88.png",
+    link: "/services", // Navigate to services page for digital marketing section
   },
   {
     id: 6,
     title: "Web Development",
     image: "/assets/Rectangle 88 (1).png",
+    link: "/webdevelopment", // Direct link to web development page
   },
 ];
 
@@ -72,7 +78,10 @@ export default function WhatWeDoSection() {
               transition={{ duration: 0.6, delay: index * 0.06, ease: "easeOut" }}
               className="flex justify-center"
             >
-              <div className="flex h-[339px] w-full max-w-[403px] flex-col overflow-hidden rounded-[28px] bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] border-[1.5px] border-black/40">
+              <a 
+                href={item.link}
+                className="flex h-[339px] w-full max-w-[403px] flex-col overflow-hidden rounded-[28px] bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] border-[1.5px] border-black/40 hover:shadow-[0_15px_50px_rgba(15,23,42,0.12)] transition-shadow duration-300 cursor-pointer"
+              >
                 {/* Image */}
                 <div className="relative h-[230px] w-full overflow-hidden">
                   <img
@@ -91,7 +100,7 @@ export default function WhatWeDoSection() {
                     {item.title}
                   </p>
 
-                  <button className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500 text-white shadow-md hover:bg-sky-600 transition-colors">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500 text-white shadow-md hover:bg-sky-600 transition-colors">
                     <svg
                       width="18"
                       height="18"
@@ -107,9 +116,9 @@ export default function WhatWeDoSection() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </div>
-              </div>
+              </a>
             </motion.article>
           ))}
         </div>
@@ -122,15 +131,16 @@ export default function WhatWeDoSection() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
           className="mt-12 flex justify-center"
         >
-          <button
-            className="inline-flex items-center gap-3 rounded-full bg-sky-500 px-8 py-3 text-sm md:text-base font-medium text-white shadow-[0_10px_30px_rgba(56,189,248,0.45)] hover:bg-sky-600 transition-colors"
+          <a
+            href="/services"
+            className="inline-flex items-center gap-3 rounded-full bg-sky-500 px-8 py-3 text-sm md:text-base font-medium text-white shadow-[0_10px_30px_rgba(56,189,248,0.45)] hover:bg-sky-600 transition-colors cursor-pointer"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             <span>Explore What We Do</span>
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black/90 text-white text-xs">
               ↓
             </span>
-          </button>
+          </a>
         </motion.div>
       </div>
     </motion.section>

@@ -283,18 +283,7 @@ export default function MobileAppDevelopment() {
         </div>
       </div>
 
-      {/* Breadcrumb */}
-      <section className="py-4 px-4 md:px-8 lg:px-20 bg-white border-b border-gray-100" data-header-color="white">
-        <div className="flex items-center gap-2 text-sm text-gray-500">
-          <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
-          <span>/</span>
-          <a href="/services" className="hover:text-blue-600 transition-colors">Services</a>
-          <span>/</span>
-          <a href="/services" className="hover:text-blue-600 transition-colors">Technology</a>
-          <span>/</span>
-          <span className="text-gray-900">Mobile App Development</span>
-        </div>
-      </section>
+      
 
       {/* Main Content */}
       <section className="py-12 px-4 md:px-8 lg:px-20 bg-white" data-header-color="white">

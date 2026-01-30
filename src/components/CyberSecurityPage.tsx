@@ -139,7 +139,7 @@ export default function CyberSecurityPage() {
       videoSrc="/assets/bg.mp4"
       subtitle="Advanced Cybersecurity Solutions for Digital Protection"
       description="Our comprehensive cybersecurity services protect your organization from evolving cyber threats and ensure the security of your digital assets. We provide end-to-end security solutions including threat assessment, security implementation, compliance management, and incident response. Our expert security team uses cutting-edge tools and methodologies to safeguard your business against cyberattacks, data breaches, and security vulnerabilities."
-      processVideo="/assets/hero1.mp4"
+      processVideo="/assets/services.mp4"
       processItems={processItems}
       relatedIndustries={relatedIndustries}
       caseStudies={caseStudies}

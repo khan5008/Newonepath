@@ -126,26 +126,58 @@ export default function Services() {
                   </h2>
 
                   <div className="space-y-4">
-                    {category.services.map((service, index) => (
-                      <motion.div
-                        key={service}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                        className="flex items-center justify-between py-4 border-b border-gray-200 group cursor-pointer hover:border-gray-400 transition-colors"
-                      >
-                        <span
-                          className="text-lg md:text-xl text-gray-800 group-hover:text-black transition-colors"
-                          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                    {category.services.map((service, index) => {
+                      // Map service names to their respective routes
+                      const getServiceRoute = (serviceName: string) => {
+                        const routeMap: { [key: string]: string } = {
+                          // Branding services
+                          "Brand Consulting": "/brandconsulting",
+                          "Logo Design": "/logo",
+                          "Product Design": "/product",
+                          "Graphic Design": "/graphicdesign",
+                          "2D / 3D Visualization": "/2dvisualization",
+                          "Video Creation & Editing": "/videocreation",
+                          
+                          // Intuitive Design services
+                          "UI/UX Design": "/uiuxdesign",
+                          "Website Design": "/websitedesign",
+                          "Mobile Experience": "/mobileexperience",
+                          "Commerce Experience": "/commerceexperience",
+                          "Prototypes": "/prototype",
+                          
+                          // Technology services
+                          "AI & Machine Learning": "/aiml",
+                          "Data & Analytics": "/dataanalytics",
+                          "Web Development": "/webdevelopment",
+                          "Mobile App Development": "/mobileappdevelopment",
+                          "E-Commerce": "/ecommerce",
+                          "Quality Assurance & Testing": "/quality-assurance",
+                        };
+                        return routeMap[serviceName] || "#";
+                      };
+
+                      return (
+                        <motion.a
+                          key={service}
+                          href={getServiceRoute(service)}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                          className="flex items-center justify-between py-4 border-b border-gray-200 group cursor-pointer hover:border-gray-400 transition-colors"
                         >
-                          {service}
-                        </span>
-                        <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center group-hover:bg-gray-800 transition-colors">
-                          <ArrowRight className="w-5 h-5 text-white" />
-                        </div>
-                      </motion.div>
-                    ))}
+                          <span
+                            className="text-lg md:text-xl text-gray-800 group-hover:text-black transition-colors"
+                            style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                          >
+                            {service}
+                          </span>
+                          <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center group-hover:bg-gray-800 transition-colors">
+                            <ArrowRight className="w-5 h-5 text-white" />
+                          </div>
+                        </motion.a>
+                      );
+                    })}
                   </div>
                 </motion.div>
               </div>
