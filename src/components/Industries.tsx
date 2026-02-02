@@ -616,7 +616,8 @@ export default function Industries() {
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >
-            <motion.button
+            <motion.a
+              href="/insights"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-blue-500 text-blue-500 px-8 py-3 text-base font-medium hover:bg-blue-50 transition-colors"
@@ -624,7 +625,7 @@ export default function Industries() {
             >
               <span>Explore all Insights</span>
               <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </div>
@@ -774,7 +775,7 @@ export default function Industries() {
                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   >
                     To find out more about our work or any of our other brands, get in touch. Mail us on{' '}
-                    <span className="text-black font-medium">info@webandcrafts.com</span> or call{' '}
+                    <span className="text-black font-medium"></span> or call{' '}
                     <span className="text-black font-medium">+91 480 2733 555</span>
                   </p>
                   <motion.button

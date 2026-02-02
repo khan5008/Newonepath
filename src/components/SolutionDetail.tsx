@@ -352,7 +352,8 @@ export default function SolutionDetail() {
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >
-            <motion.button
+            <motion.a
+              href="/insights"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 rounded-full bg-cyan-500 text-white px-8 py-4 text-base font-medium shadow-lg"
@@ -362,7 +363,7 @@ export default function SolutionDetail() {
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white text-sm">
                 →
               </span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </div>

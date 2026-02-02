@@ -5,27 +5,27 @@ import { motion } from "framer-motion";
 const customers = [
   {
     id: 1,
-    name: "Basair",
-    sector: "Finance",
+    name: "Sarah Johnson",
+    sector: "Senior Developer",
     description:
-      "Caribou: Helping a reputed coffee chain go digital with a powerful app in their Kuwait chapter",
-    video: "/assets/baisierweb.mp4",
+      "Working at One Path Solutions has been an incredible journey. The collaborative environment and cutting-edge projects keep me motivated every day.",
+    image: "/assets/emp1.jpg",
   },
   {
     id: 2,
-    name: "Hajj Path Live",
-    sector: "Travel & Faith",
+    name: "Michael Chen",
+    sector: "Product Manager",
     description:
-      "Hajj Path Live: A unified web and mobile experience to guide pilgrims and agencies in real time.",
-    image: "/assets/hajjpath.png",
+      "The company's commitment to innovation and employee growth is outstanding. I've been able to lead amazing projects and develop my skills.",
+    image: "/assets/emp2.jpg",
   },
   {
     id: 3,
-    name: "AlSafar",
-    sector: "Travel",
+    name: "Emily Rodriguez",
+    sector: "UX Designer",
     description:
-      "AlSafar: From booking to arrival, a seamless super app experience for modern travellers.",
-    video: "/assets/Al safar.mp4",
+      "One Path Solutions values creativity and provides the perfect platform to bring innovative design ideas to life. It's truly inspiring.",
+    image: "/assets/emp3.png",
   },
 ];
 
@@ -155,7 +155,8 @@ export default function OurCustomersSection() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
           className="flex justify-center"
         >
-          <button
+          <a
+            href="/career2"
             className="inline-flex items-center gap-3 rounded-full bg-sky-500 px-8 py-3 text-sm md:text-base font-medium text-white shadow-[0_10px_30px_rgba(56,189,248,0.45)] hover:bg-sky-600 transition-colors"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
@@ -163,7 +164,7 @@ export default function OurCustomersSection() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black/90 text-white text-xs">
               ↓
             </span>
-          </button>
+          </a>
         </motion.div>
       </div>
     </motion.section>

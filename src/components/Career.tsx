@@ -58,7 +58,8 @@ export default function Career() {
               At One Path Solutions , we are all about creating a habitat that lets you grow stronger roots and larger branches. Together let&apos;s make a fruitful journey!
             </p>
 
-            <motion.button
+            <motion.a
+              href="/career2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 border border-black px-8 py-3 text-base font-medium text-black hover:bg-black hover:text-white transition-all duration-300"
@@ -80,7 +81,7 @@ export default function Career() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Right Side - Person Image Card with Rotating Images */}

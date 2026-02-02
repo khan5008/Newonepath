@@ -194,7 +194,10 @@ export default function ServicesSection() {
                   that&apos;s our inspiration in crafting 
                   tomorrow&apos;s tech realm
                 </p>
-                <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0">
+                <a 
+                  href="/design"
+                  className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0"
+                >
                   <span className="relative">
                     Learn more
                     <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
@@ -214,7 +217,7 @@ export default function ServicesSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -251,7 +254,10 @@ export default function ServicesSection() {
                 for your enterprise to harness its endless 
                 possibilities and leave a global imprint
               </p>
-              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0">
+              <a 
+                href="/build"
+                className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0"
+              >
                 <span className="relative">
                   Learn more
                   <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
@@ -271,7 +277,7 @@ export default function ServicesSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -308,7 +314,10 @@ export default function ServicesSection() {
                 and HOW of propelling your 
                 business to new frontiers
               </p>
-              <button className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0">
+              <a 
+                href="/market"
+                className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0"
+              >
                 <span className="relative">
                   Learn more
                   <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
@@ -328,7 +337,7 @@ export default function ServicesSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>

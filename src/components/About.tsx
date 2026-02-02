@@ -542,7 +542,8 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >
-            <motion.button
+            <motion.a
+              href="/insights"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-full border-2 border-black text-black px-8 py-3 text-base font-medium hover:bg-black hover:text-white transition-colors"
@@ -550,7 +551,7 @@ export default function About() {
             >
               <span>Explore all Insights</span>
               <span>→</span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </div>
