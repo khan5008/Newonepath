@@ -3,12 +3,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
+import { getServiceRoute, getBlogRoute, getInsightsRoute } from "@/utils/navigationUtils";
+import RelatedIndustries from "./RelatedIndustries";
 
 export default function AIMLPage() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
 
   const aiServices = [
     {
@@ -224,7 +228,10 @@ export default function AIMLPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             >
-              <button className="inline-flex items-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="inline-flex items-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg"
+              >
                 <span>I&apos;m Interested</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14"/>
@@ -644,10 +651,16 @@ export default function AIMLPage() {
               Let&apos;s discuss how our AI solutions can drive innovation, efficiency, and growth for your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg"
+              >
                 Schedule Consultation
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 font-medium text-lg">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 font-medium text-lg"
+              >
                 Download AI Guide
               </button>
             </div>

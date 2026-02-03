@@ -230,7 +230,10 @@ export default function Analytics() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="mt-8"
                 >
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-sm">
+                  <button 
+                    onClick={() => router.push('/contact')}
+                    className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-sm"
+                  >
                     Let&apos;s talk →
                   </button>
                 </motion.div>

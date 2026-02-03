@@ -3,11 +3,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import FooterSection from "./FooterSection";
+import { getServiceRoute } from "../utils/navigationUtils";
 
 export default function CommerceExperience() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
 
   const commerceServices = [
     {
@@ -235,7 +238,10 @@ export default function CommerceExperience() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="mt-8"
                 >
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-sm">
+                  <button 
+                    onClick={() => router.push('/contact')}
+                    className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-sm"
+                  >
                     Let&apos;s talk →
                   </button>
                 </motion.div>

@@ -3,12 +3,15 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight, ArrowRight, Play } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
+import { getServiceRoute } from "../utils/navigationUtils";
 
 export default function MicrosoftDynamics() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
 
   const dynamicsServices = [
     {
@@ -703,6 +706,7 @@ export default function MicrosoftDynamics() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                onClick={() => router.push(getServiceRoute(service.title))}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -724,7 +728,13 @@ export default function MicrosoftDynamics() {
                   >
                     {service.description}
                   </p>
-                  <button className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors">
+                  <button 
+                    className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      router.push(getServiceRoute(service.title));
+                    }}
+                  >
                     <span className="text-sm font-medium">Learn more</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>

@@ -3,10 +3,22 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import FooterSection from "./FooterSection";
+import { getBlogRoute, getInsightsRoute } from "@/utils/navigationUtils";
 
 export default function Career2() {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const router = useRouter();
+
+  const handleInsightNavigation = (insightId: number) => {
+    const route = getBlogRoute(insightId);
+    router.push(route);
+  };
+
+  const handleExploreInsights = () => {
+    router.push(getInsightsRoute());
+  };
 
   const values = [
     {
@@ -372,6 +384,7 @@ export default function Career2() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer"
+                onClick={() => handleInsightNavigation(insight.id)}
               >
                 <div className="relative overflow-hidden rounded-2xl mb-4">
                   <img
@@ -414,6 +427,10 @@ export default function Career2() {
           >
             <motion.a
               href="/insights"
+              onClick={(e) => {
+                e.preventDefault();
+                handleExploreInsights();
+              }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-black text-black px-8 py-3 text-base font-medium hover:bg-black hover:text-white transition-colors"

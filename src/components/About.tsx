@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import FooterSection from "./FooterSection";
+import { getBlogRoute, getInsightsRoute } from "../utils/navigationUtils";
 
 export default function About() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const employees = [
     { id: 1, image: "/assets/emp1.jpg", name: "Name Lorem", role: "DESIGNER" },
@@ -375,6 +378,7 @@ export default function About() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push('/contact')}
               className="inline-flex items-center gap-3 rounded-full bg-black text-white px-8 py-4 text-base font-medium shadow-lg"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
@@ -501,6 +505,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer"
+                onClick={() => router.push(getBlogRoute(insight.id))}
               >
                 <div className="relative overflow-hidden rounded-2xl mb-4">
                   <img

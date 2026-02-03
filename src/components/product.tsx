@@ -3,11 +3,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import FooterSection from "./FooterSection";
+import { getServiceRoute } from "../utils/navigationUtils";
 
 export default function Product() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
 
   const processSteps = [
     {
@@ -199,7 +202,10 @@ export default function Product() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="mt-8"
                 >
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-sm">
+                  <button 
+                    onClick={() => router.push('/contact')}
+                    className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-sm"
+                  >
                     Let&apos;s talk →
                   </button>
                 </motion.div>
@@ -552,6 +558,7 @@ export default function Product() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                onClick={() => router.push(getServiceRoute(service.title))}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -573,7 +580,13 @@ export default function Product() {
                   >
                     {service.description}
                   </p>
-                  <button className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors">
+                  <button 
+                    className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      router.push(getServiceRoute(service.title));
+                    }}
+                  >
                     <span className="text-sm font-medium">Learn more</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>

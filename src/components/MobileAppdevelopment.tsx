@@ -3,13 +3,22 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
+import { getServiceRoute, getBlogRoute, getInsightsRoute } from "@/utils/navigationUtils";
+import RelatedIndustries from "./RelatedIndustries";
 
 export default function MobileAppDevelopment() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState(0);
+  const router = useRouter();
+
+  const handleServiceNavigation = (serviceName: string) => {
+    const route = getServiceRoute(serviceName);
+    router.push(route);
+  };
 
   const mobileAppServices = [
     {
@@ -315,7 +324,10 @@ export default function MobileAppDevelopment() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="mt-8"
                 >
-                  <button className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition-colors font-medium text-sm">
+                  <button 
+                    onClick={() => router.push('/contact')}
+                    className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition-colors font-medium text-sm"
+                  >
                     Let&apos;s talk →
                   </button>
                 </motion.div>
@@ -632,77 +644,7 @@ export default function MobileAppDevelopment() {
       </div>
 
       {/* Related Industries Section */}
-      <div className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
-            <motion.h2
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-3xl md:text-4xl lg:text-5xl text-black font-light"
-              style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-            >
-              Related Industries
-            </motion.h2>
-            <motion.button
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex items-center gap-2 text-purple-500 hover:text-purple-600 transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {relatedIndustries.map((industry, index) => (
-              <motion.div
-                key={industry.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative overflow-hidden rounded-2xl mb-4">
-                  <img
-                    src={industry.image}
-                    alt={industry.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <h3
-                  className="text-xl font-semibold text-black mb-2"
-                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-                >
-                  {industry.title}
-                </h3>
-                <p
-                  className="text-sm text-gray-600 leading-relaxed"
-                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-                >
-                  {industry.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mt-12"
-          >
-            <button className="inline-flex items-center gap-2 text-purple-500 border-2 border-purple-500 rounded-lg px-6 py-3 hover:bg-purple-50 transition-colors">
-              <span>View all industries</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </motion.div>
-        </div>
-      </div>
+      <RelatedIndustries />
 
       {/* FAQ Section */}
       <div className="bg-white py-20 px-6 md:px-12 lg:px-20">
@@ -813,7 +755,10 @@ export default function MobileAppDevelopment() {
                   >
                     {service.description}
                   </p>
-                  <button className="inline-flex items-center gap-2 text-purple-500 hover:text-purple-600 transition-colors">
+                  <button 
+                    onClick={() => handleServiceNavigation(service.title)}
+                    className="inline-flex items-center gap-2 text-purple-500 hover:text-purple-600 transition-colors"
+                  >
                     <span className="text-sm font-medium">Learn more</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>

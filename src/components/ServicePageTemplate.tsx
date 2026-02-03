@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Plus, Minus, ArrowRight, ChevronRight } from "lucide-react";
 import FooterSection from "./FooterSection";
 
@@ -68,6 +69,7 @@ export default function ServicePageTemplate({
 }: ServicePageProps) {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
+  const router = useRouter();
 
   const toggleSection = (id: string) => {
     setOpenSection(openSection === id ? null : id);
@@ -135,6 +137,7 @@ export default function ServicePageTemplate({
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => router.push('/contact')}
                   className="inline-flex items-center gap-2 text-blue-500 font-medium text-base border-2 border-blue-500 rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >

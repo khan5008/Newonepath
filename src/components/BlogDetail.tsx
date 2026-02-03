@@ -57,11 +57,11 @@ export default function BlogDetail({ post }: BlogDetailProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-white" data-header-color="white">
+    <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-12 px-6 md:px-12 lg:px-20 bg-white">
+      <section className="pt-20 pb-12 px-6 md:px-12 lg:px-20 bg-white" data-header-color="white">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
           <motion.button
@@ -71,10 +71,7 @@ export default function BlogDetail({ post }: BlogDetailProps) {
             onClick={handleBackClick}
             className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors mb-8"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-              Back to Insights
-            </span>
+           
           </motion.button>
 
           {/* Article Meta */}
@@ -152,7 +149,7 @@ export default function BlogDetail({ post }: BlogDetailProps) {
       </section>
 
       {/* Featured Image */}
-      <section className="px-6 md:px-12 lg:px-20 mb-12">
+      <section className="px-6 md:px-12 lg:px-20 mb-12" data-header-color="white">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,7 +165,7 @@ export default function BlogDetail({ post }: BlogDetailProps) {
       </section>
 
       {/* Article Content */}
-      <section className="px-6 md:px-12 lg:px-20 pb-16">
+      <section className="px-6 md:px-12 lg:px-20 pb-16" data-header-color="white">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

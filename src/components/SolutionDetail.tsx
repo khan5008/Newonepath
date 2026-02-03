@@ -4,10 +4,20 @@ import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import FooterSection from "./FooterSection";
+import { getBlogRoute, getInsightsRoute } from "@/utils/navigationUtils";
 
 export default function SolutionDetail() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
+
+  const handleInsightNavigation = (insightId: number) => {
+    const route = getBlogRoute(insightId);
+    router.push(route);
+  };
+
+  const handleExploreInsights = () => {
+    router.push(getInsightsRoute());
+  };
 
   useEffect(() => {
     // Ensure video plays on mount
@@ -106,6 +116,7 @@ export default function SolutionDetail() {
             transition={{ duration: 0.8, delay: 0.3 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => router.push('/contact')}
             className="inline-flex items-center gap-3 rounded-full bg-black text-white px-8 py-4 text-base font-medium shadow-lg mb-12"
             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           >
@@ -311,6 +322,7 @@ export default function SolutionDetail() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer"
+                onClick={() => handleInsightNavigation(insight.id)}
               >
                 <div className="relative overflow-hidden rounded-2xl mb-4">
                   <img
@@ -354,6 +366,10 @@ export default function SolutionDetail() {
           >
             <motion.a
               href="/insights"
+              onClick={(e) => {
+                e.preventDefault();
+                handleExploreInsights();
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 rounded-full bg-cyan-500 text-white px-8 py-4 text-base font-medium shadow-lg"

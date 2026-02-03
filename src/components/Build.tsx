@@ -3,11 +3,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
+import { getBlogRoute, getInsightsRoute } from "../utils/navigationUtils";
 
 export default function Build() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
 
   const buildCategories = [
     {
@@ -76,18 +79,21 @@ export default function Build() {
 
   const featuredStories = [
     {
+      id: 5,
       title: "Microservices Architecture Best Practices",
       excerpt: "How we design and implement scalable microservices architectures for enterprise applications.",
       image: "/assets/solution4.jpg",
       readTime: "8 min read"
     },
     {
+      id: 2,
       title: "DevOps Transformation Journey",
       excerpt: "Our approach to implementing DevOps practices that accelerate development and improve reliability.",
       image: "/assets/solution5.jpg",
       readTime: "6 min read"
     },
     {
+      id: 3,
       title: "Cloud-Native Development",
       excerpt: "Building applications designed specifically for cloud environments from the ground up.",
       image: "/assets/portfoliodetail2.jpg",
@@ -456,6 +462,7 @@ export default function Build() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                onClick={() => router.push(getBlogRoute(story.id))}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -484,6 +491,23 @@ export default function Build() {
               </motion.article>
             ))}
           </div>
+
+          {/* Explore All Insights Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <button 
+              onClick={() => router.push(getInsightsRoute())}
+              className="inline-flex items-center gap-2 text-blue-500 border-2 border-blue-500 rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
+            >
+              <span>Explore all Insights</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
         </div>
       </div>
       {/* FAQ Section */}

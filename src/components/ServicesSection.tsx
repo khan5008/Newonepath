@@ -38,8 +38,10 @@ export default function ServicesSection() {
     if (!videos.every(v => v) || !sections.every(s => s) || !contents.every(c => c)) return;
 
     // Set initial states - all hidden initially
-    gsap.set(contents, { opacity: 0, y: 50 });
-    gsap.set(videos, { opacity: 0, visibility: "hidden" });
+    // On mobile, start videos from center/top position, not bottom
+    const isMobile = window.innerWidth < 1024;
+    gsap.set(contents, { opacity: 0, y: isMobile ? 20 : 50 });
+    gsap.set(videos, { opacity: 0, visibility: "hidden", y: isMobile ? 0 : 30 });
     gsap.set(sections, { opacity: 0 });
     
     // Ensure fixed container starts hidden
@@ -59,7 +61,7 @@ export default function ServicesSection() {
         }
         // Show first section when entering
         gsap.set([sections[0], contents[0], videos[0]], { opacity: 1 });
-        gsap.set(videos[0], { visibility: "visible" });
+        gsap.set(videos[0], { visibility: "visible", y: 0 });
         gsap.set(contents[0], { y: 0 });
       },
       onLeave: () => {
@@ -83,27 +85,31 @@ export default function ServicesSection() {
         const sectionProgress = progress * (totalSections - 1); // 0 to 2
         const currentSectionIndex = Math.floor(sectionProgress);
         const localProgress = sectionProgress - currentSectionIndex;
+        const isMobile = window.innerWidth < 1024;
 
         // Fade between sections
         sections.forEach((section, index) => {
           let sectionOpacity = 0;
           let contentOpacity = 0;
           let videoOpacity = 0;
-          let contentY = 50;
+          let contentY = isMobile ? 20 : 50;
+          let videoY = 0;
 
           if (index === currentSectionIndex) {
             // Current section - fade in
             sectionOpacity = 1;
             contentOpacity = Math.max(0, 1 - localProgress * 2);
             videoOpacity = Math.max(0, 1 - localProgress * 1.5);
-            contentY = localProgress * -30;
+            contentY = localProgress * (isMobile ? -15 : -30);
+            videoY = 0; // Keep videos stable on mobile
           } else if (index === currentSectionIndex + 1 && localProgress > 0.3) {
             // Next section - fade in
             const fadeProgress = (localProgress - 0.3) / 0.7;
             sectionOpacity = 1;
             contentOpacity = fadeProgress;
             videoOpacity = fadeProgress;
-            contentY = 50 - (fadeProgress * 50);
+            contentY = (isMobile ? 20 : 50) - (fadeProgress * (isMobile ? 20 : 50));
+            videoY = 0;
           }
 
           // Apply animations smoothly
@@ -122,6 +128,7 @@ export default function ServicesSection() {
 
           gsap.to(videos[index], {
             opacity: videoOpacity,
+            y: videoY,
             visibility: videoOpacity > 0.1 ? "visible" : "hidden",
             duration: 0.1,
             ease: "none"
@@ -139,6 +146,16 @@ export default function ServicesSection() {
             }
           }
         });
+
+        // Update "Up Next" indicator on mobile
+        if (isMobile) {
+          const upNextElement = document.getElementById('up-next-text');
+          if (upNextElement) {
+            const sectionNames = ['Build', 'Market', 'Design'];
+            const nextIndex = (currentSectionIndex + 1) % 3;
+            upNextElement.textContent = sectionNames[nextIndex];
+          }
+        }
       }
     });
 
@@ -162,49 +179,49 @@ export default function ServicesSection() {
       {/* Fixed container for all sections - clipped to section bounds */}
       <div ref={fixedContainerRef} className="fixed inset-0 w-full h-screen pointer-events-none opacity-0 invisible" style={{ zIndex: 1, willChange: 'transform' }}>
         
-          {/* Section 1: Design */}
-          <div 
-            ref={section1Ref}
-            className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
-          >
-            {/* Full-screen video background - Right side on desktop, top on mobile */}
-            <div className="absolute lg:right-0 top-0 w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden z-0">
-              <video
-                ref={designVideoRef}
-                src="/assets/design.mp4"
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover opacity-0 pointer-events-none"
-              />
-            </div>
-            
-            {/* Content - Left side on desktop, bottom on mobile */}
-            <div className="relative z-10 w-full lg:w-1/2 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center h-1/2 lg:h-full pointer-events-auto bg-black/50 lg:bg-transparent">
-              <div ref={content1Ref} className="max-w-2xl opacity-0 text-center lg:text-left w-full">
-                <div className="mb-4 lg:mb-8">
-                  <div className="w-8 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
-                  <h1 className="text-3xl md:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
-                    Design
-                  </h1>
-                </div>
-                <p className="text-gray-300 text-sm md:text-base lg:text-xl xl:text-2xl leading-relaxed mb-6 lg:mb-12 font-light">
-                  Intelligent design is the essence of nature; 
-                  that&apos;s our inspiration in crafting 
-                  tomorrow&apos;s tech realm
-                </p>
-                <a 
-                  href="/design"
-                  className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0"
-                >
-                  <span className="relative">
-                    Learn more
-                    <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
+        {/* Section 1: Design */}
+        <div 
+          ref={section1Ref}
+          className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
+        >
+          {/* Video background - Full screen on mobile, right side on desktop */}
+          <div className="absolute lg:right-0 top-0 w-full lg:w-1/2 h-full lg:h-full overflow-hidden z-0">
+            <video
+              ref={designVideoRef}
+              src="/assets/design.mp4"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover opacity-0 pointer-events-none"
+            />
+          </div>
+          
+          {/* Content - Centered on mobile, left side on desktop */}
+          <div className="relative z-10 w-full lg:w-1/2 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center justify-center lg:justify-start h-full lg:h-full pointer-events-auto bg-gradient-to-b from-black/60 via-black/40 to-black/60 lg:bg-transparent">
+            <div ref={content1Ref} className="max-w-sm lg:max-w-2xl opacity-0 text-center lg:text-left w-full">
+              <div className="mb-6 lg:mb-8">
+                <div className="w-12 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
+                <h1 className="text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
+                  Design
+                </h1>
+              </div>
+              <p className="text-gray-300 text-sm lg:text-xl xl:text-2xl leading-relaxed mb-8 lg:mb-12 font-light">
+                Intelligent design is the essence of nature; 
+                that&apos;s our inspiration in crafting 
+                tomorrow&apos;s tech realm
+              </p>
+              <a 
+                href="/design"
+                className="group inline-flex items-center justify-center lg:justify-start gap-3 lg:gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm lg:text-lg mx-auto lg:mx-0"
+              >
+                <span className="relative">
+                  Learn more
+                  <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
                 </span>
                 <svg 
-                  width="20" 
-                  height="20" 
+                  width="16" 
+                  height="16" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   className="group-hover:translate-x-2 transition-transform duration-300 lg:w-6 lg:h-6"
@@ -227,8 +244,8 @@ export default function ServicesSection() {
           ref={section2Ref}
           className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
         >
-          {/* Full-screen video background - Left side on desktop, top on mobile */}
-          <div className="absolute lg:left-0 top-0 w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden z-0">
+          {/* Video background - Full screen on mobile, left side on desktop */}
+          <div className="absolute lg:left-0 top-0 w-full lg:w-1/2 h-full lg:h-full overflow-hidden z-0">
             <video
               ref={buildVideoRef}
               src="/assets/build (2).mp4"
@@ -240,31 +257,31 @@ export default function ServicesSection() {
             />
           </div>
           
-          {/* Content - Right side on desktop, bottom on mobile */}
-          <div className="relative z-10 w-full lg:w-1/2 lg:ml-auto px-4 md:px-8 lg:px-16 xl:px-24 flex items-center h-1/2 lg:h-full pointer-events-auto bg-black/50 lg:bg-transparent">
-            <div ref={content2Ref} className="max-w-2xl opacity-0 text-center lg:text-left w-full">
-              <div className="mb-4 lg:mb-8">
-                <div className="w-8 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
-                <h1 className="text-3xl md:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
+          {/* Content - Centered on mobile, right side on desktop */}
+          <div className="relative z-10 w-full lg:w-1/2 lg:ml-auto px-4 md:px-8 lg:px-16 xl:px-24 flex items-center justify-center lg:justify-start h-full lg:h-full pointer-events-auto bg-gradient-to-b from-black/60 via-black/40 to-black/60 lg:bg-transparent">
+            <div ref={content2Ref} className="max-w-sm lg:max-w-2xl opacity-0 text-center lg:text-left w-full">
+              <div className="mb-6 lg:mb-8">
+                <div className="w-12 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
+                <h1 className="text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
                   Build
                 </h1>
               </div>
-              <p className="text-gray-300 text-sm md:text-base lg:text-xl xl:text-2xl leading-relaxed mb-6 lg:mb-12 font-light">
+              <p className="text-gray-300 text-sm lg:text-xl xl:text-2xl leading-relaxed mb-8 lg:mb-12 font-light">
                 Constantly adopting cutting edge technology 
                 for your enterprise to harness its endless 
                 possibilities and leave a global imprint
               </p>
               <a 
                 href="/build"
-                className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0"
+                className="group inline-flex items-center justify-center lg:justify-start gap-3 lg:gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm lg:text-lg mx-auto lg:mx-0"
               >
                 <span className="relative">
                   Learn more
                   <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
                 </span>
                 <svg 
-                  width="20" 
-                  height="20" 
+                  width="16" 
+                  height="16" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   className="group-hover:translate-x-2 transition-transform duration-300 lg:w-6 lg:h-6"
@@ -287,8 +304,8 @@ export default function ServicesSection() {
           ref={section3Ref}
           className="absolute inset-0 flex flex-col lg:flex-row items-center overflow-hidden opacity-0 pointer-events-auto"
         >
-          {/* Full-screen video background - Right side on desktop, top on mobile */}
-          <div className="absolute lg:right-0 top-0 w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden z-0">
+          {/* Video background - Full screen on mobile, right side on desktop */}
+          <div className="absolute lg:right-0 top-0 w-full lg:w-1/2 h-full lg:h-full overflow-hidden z-0">
             <video
               ref={marketVideoRef}
               src="/assets/newmarket.mp4"
@@ -300,31 +317,31 @@ export default function ServicesSection() {
             />
           </div>
           
-          {/* Content - Left side on desktop, bottom on mobile */}
-          <div className="relative z-10 w-full lg:w-1/2 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center h-1/2 lg:h-full pointer-events-auto bg-black/50 lg:bg-transparent">
-            <div ref={content3Ref} className="max-w-2xl opacity-0 text-center lg:text-left w-full">
-              <div className="mb-4 lg:mb-8">
-                <div className="w-8 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
-                <h1 className="text-3xl md:text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
+          {/* Content - Centered on mobile, left side on desktop */}
+          <div className="relative z-10 w-full lg:w-1/2 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center justify-center lg:justify-start h-full lg:h-full pointer-events-auto bg-gradient-to-b from-black/60 via-black/40 to-black/60 lg:bg-transparent">
+            <div ref={content3Ref} className="max-w-sm lg:max-w-2xl opacity-0 text-center lg:text-left w-full">
+              <div className="mb-6 lg:mb-8">
+                <div className="w-12 lg:w-12 h-0.5 bg-white/30 mb-4 lg:mb-6 mx-auto lg:mx-0"></div>
+                <h1 className="text-4xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extralight text-white mb-4 lg:mb-8 leading-none tracking-tight">
                   Market
                 </h1>
               </div>
-              <p className="text-gray-300 text-sm md:text-base lg:text-xl xl:text-2xl leading-relaxed mb-6 lg:mb-12 font-light">
+              <p className="text-gray-300 text-sm lg:text-xl xl:text-2xl leading-relaxed mb-8 lg:mb-12 font-light">
                 Experts in solving the WHY, WHERE 
                 and HOW of propelling your 
                 business to new frontiers
               </p>
               <a 
                 href="/market"
-                className="group flex items-center gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm md:text-base lg:text-lg mx-auto lg:mx-0"
+                className="group inline-flex items-center justify-center lg:justify-start gap-3 lg:gap-4 text-white/80 hover:text-white transition-all duration-300 text-sm lg:text-lg mx-auto lg:mx-0"
               >
                 <span className="relative">
                   Learn more
                   <div className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></div>
                 </span>
                 <svg 
-                  width="20" 
-                  height="20" 
+                  width="16" 
+                  height="16" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   className="group-hover:translate-x-2 transition-transform duration-300 lg:w-6 lg:h-6"
@@ -339,6 +356,22 @@ export default function ServicesSection() {
                 </svg>
               </a>
             </div>
+          </div>
+        </div>
+        
+        {/* Up Next Indicator - Mobile Only */}
+        <div className="absolute top-4 right-4 lg:hidden z-20 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2 text-white text-xs font-medium">
+          <div className="flex items-center gap-2">
+            <span className="text-white/60">Up Next:</span>
+            <span id="up-next-text">Build</span>
+          </div>
+        </div>
+
+        {/* Scroll Indicator - Mobile Only */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 lg:hidden z-20 flex flex-col items-center text-white/60 text-xs">
+          <span className="mb-2">Scroll to explore</span>
+          <div className="w-px h-8 bg-white/30 relative">
+            <div className="absolute top-0 w-px h-2 bg-white animate-pulse"></div>
           </div>
         </div>
         

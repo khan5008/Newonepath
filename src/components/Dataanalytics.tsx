@@ -3,13 +3,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus, ChevronRight, ArrowRight, BarChart3, TrendingUp, Database, Brain, Target, Zap } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
+import { getServiceRoute, getBlogRoute, getInsightsRoute } from "@/utils/navigationUtils";
+import RelatedIndustries from "./RelatedIndustries";
 
 export default function DataAnalytics() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState(0);
+  const router = useRouter();
 
   const analyticsServices = [
     {
@@ -281,10 +285,16 @@ export default function DataAnalytics() {
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg"
+              >
                 Start Your Analytics Journey
               </button>
-              <button className="border-2 border-white/30 text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-300 font-medium text-lg backdrop-blur-sm">
+              <button 
+                onClick={() => router.push('/portfolio')}
+                className="border-2 border-white/30 text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-300 font-medium text-lg backdrop-blur-sm"
+              >
                 View Case Studies
               </button>
             </motion.div>
@@ -838,10 +848,16 @@ export default function DataAnalytics() {
               Let&apos;s transform your data into actionable insights that drive growth, optimize operations, and create competitive advantages.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium text-lg">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium text-lg"
+              >
                 Start Your Analytics Project
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg"
+              >
                 Download Analytics Guide
               </button>
             </div>

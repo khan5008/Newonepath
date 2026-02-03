@@ -3,10 +3,22 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import FooterSection from "./FooterSection";
+import { getBlogRoute, getInsightsRoute } from "@/utils/navigationUtils";
 
 export default function Industries() {
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const router = useRouter();
+
+  const handleInsightNavigation = (insightId: number) => {
+    const route = getBlogRoute(insightId);
+    router.push(route);
+  };
+
+  const handleExploreInsights = () => {
+    router.push(getInsightsRoute());
+  };
 
   const industries = [
     "Charity",
@@ -484,6 +496,7 @@ export default function Industries() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push('/contact')}
                 className="inline-flex items-center gap-2 text-blue-500 font-medium text-base border-2 border-blue-500 rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
@@ -575,6 +588,7 @@ export default function Industries() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer"
+                onClick={() => handleInsightNavigation(insight.id)}
               >
                 <div className="relative overflow-hidden rounded-2xl mb-6">
                   <img
@@ -618,6 +632,10 @@ export default function Industries() {
           >
             <motion.a
               href="/insights"
+              onClick={(e) => {
+                e.preventDefault();
+                handleExploreInsights();
+              }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-blue-500 text-blue-500 px-8 py-3 text-base font-medium hover:bg-blue-50 transition-colors"
@@ -781,6 +799,7 @@ export default function Industries() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => router.push('/contact')}
                     className="inline-flex items-center gap-2 rounded-lg border-2 border-blue-500 text-blue-500 px-6 py-3 text-base font-medium hover:bg-blue-50 transition-colors"
                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   >
