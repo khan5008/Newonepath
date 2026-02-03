@@ -139,12 +139,12 @@ export default function HeroScreen() {
             </div>
           </div>
 
-          {/* Bottom-right preview card - absolute position, stays within hero, smaller size */}
-          <div className="pointer-events-none absolute bottom-32 right-6 z-40 flex flex-col items-end md:right-10 md:bottom-36">
-            {/* Preview card - smaller dimensions */}
-            <div className="pointer-events-auto flex w-[300px] overflow-hidden rounded-xl border border-white/15 bg-black/70">
-              {/* Image container with a single, clear thumbnail - smaller */}
-              <div className="relative h-[90px] w-[120px] flex-shrink-0 overflow-hidden">
+          {/* Bottom-right preview card - Hidden on mobile, responsive positioning on desktop */}
+          <div className="pointer-events-none absolute bottom-20 right-4 z-40 hidden md:flex flex-col items-end md:right-10 md:bottom-36 lg:bottom-32">
+            {/* Preview card - responsive dimensions */}
+            <div className="pointer-events-auto flex w-[280px] md:w-[300px] overflow-hidden rounded-xl border border-white/15 bg-black/70 backdrop-blur-sm">
+              {/* Image container - responsive */}
+              <div className="relative h-[70px] w-[90px] md:h-[90px] md:w-[120px] flex-shrink-0 overflow-hidden">
                 <img
                   src="/assets/Rectangle 85.png"
                   alt="App preview"
@@ -152,16 +152,16 @@ export default function HeroScreen() {
                 />
               </div>
 
-              <div className="flex flex-1 flex-col justify-between px-3 py-2.5 text-left">
-                <div className="text-[10px] font-normal uppercase tracking-[0.25em] text-white/70">
+              <div className="flex flex-1 flex-col justify-between px-2.5 py-2 md:px-3 md:py-2.5 text-left">
+                <div className="text-[9px] md:text-[10px] font-normal uppercase tracking-[0.25em] text-white/70">
                   Up Next
                 </div>
-                <div className="text-[13px] font-normal text-white line-clamp-2">
+                <div className="text-[11px] md:text-[13px] font-normal text-white line-clamp-2 leading-tight">
                   {nextSlide.title}
                 </div>
 
                 {/* Internal slider-style indicator synced with slides */}
-                <div className="mt-2 flex gap-1.5">
+                <div className="mt-1.5 md:mt-2 flex gap-1.5">
                   {[0, 1, 2].map((index) => (
                     <span
                       key={index}
