@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Plus, Minus, ChevronRight, ArrowRight } from "lucide-react";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
@@ -9,6 +10,7 @@ import FooterSection from "./FooterSection";
 export default function Analytics() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
 
   const analyticsServices = [
     {

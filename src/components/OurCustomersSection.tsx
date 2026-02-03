@@ -78,22 +78,11 @@ export default function OurCustomersSection() {
               <div className="flex h-[569px] w-full max-w-[403px] flex-col overflow-hidden rounded-[40px] bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
                 {/* Image with top rounded corners and subtle bottom wave/fade */}
                 <div className="relative h-[320px] w-full overflow-hidden rounded-t-[40px]">
-                  {customer.video ? (
-                    <video
-                      src={customer.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <img
-                      src={customer.image}
-                      alt={customer.name}
-                      className="h-full w-full object-cover"
-                    />
-                  )}
+                  <img
+                    src={customer.image}
+                    alt={customer.name}
+                    className="h-full w-full object-cover"
+                  />
 
                   {/* Finance pill */}
                   <div className="absolute bottom-4 left-5">
