@@ -28,20 +28,20 @@ export default function Contact() {
   return (
     <section className="min-h-screen bg-white" data-header-color="white">
       {/* Main Content */}
-      <div className="pt-40 pb-20 px-6 md:px-12 lg:px-20">
+      <div className="pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 xl:gap-24">
             
             {/* Left Side - Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <h1 
-                  className="text-5xl md:text-6xl lg:text-7xl font-normal text-black leading-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-black leading-tight"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
                   Have a project
@@ -50,7 +50,7 @@ export default function Contact() {
                 </h1>
                 
                 <p 
-                  className="text-2xl md:text-3xl text-gray-700 font-light"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 font-light"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
                   Let&apos;s make it happen!
@@ -60,31 +60,31 @@ export default function Contact() {
               {/* Download Brochure Card */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-6 p-8 bg-gray-100 rounded-2xl cursor-pointer hover:bg-gray-200 transition-colors duration-300 max-w-md"
+                className="flex items-center gap-4 sm:gap-6 p-6 sm:p-8 bg-gray-100 rounded-2xl cursor-pointer hover:bg-gray-200 transition-colors duration-300 max-w-sm sm:max-w-md"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center relative overflow-hidden">
-                  <div className="w-12 h-14 bg-white rounded-sm shadow-md transform rotate-12 relative">
-                    <div className="absolute top-2 left-2 right-2">
-                      <div className="h-1 bg-gray-300 rounded mb-1"></div>
-                      <div className="h-1 bg-gray-300 rounded mb-1"></div>
-                      <div className="h-1 bg-gray-200 rounded"></div>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center relative overflow-hidden flex-shrink-0">
+                  <div className="w-10 h-12 sm:w-12 sm:h-14 bg-white rounded-sm shadow-md transform rotate-12 relative">
+                    <div className="absolute top-1.5 sm:top-2 left-1.5 sm:left-2 right-1.5 sm:right-2">
+                      <div className="h-0.5 sm:h-1 bg-gray-300 rounded mb-0.5 sm:mb-1"></div>
+                      <div className="h-0.5 sm:h-1 bg-gray-300 rounded mb-0.5 sm:mb-1"></div>
+                      <div className="h-0.5 sm:h-1 bg-gray-200 rounded"></div>
                     </div>
-                    <div className="absolute bottom-2 left-2 text-xs font-bold text-gray-600">
+                    <div className="absolute bottom-1.5 sm:bottom-2 left-1.5 sm:left-2 text-xs font-bold text-gray-600">
                       PDF
                     </div>
                   </div>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h3 
-                    className="text-xl font-medium text-black mb-2"
+                    className="text-lg sm:text-xl font-medium text-black mb-1 sm:mb-2"
                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   >
                     Download Our Brochure
                   </h3>
-                  <div className="flex items-center gap-3">
-                    <span className="text-gray-500 text-base">PDF 2.0 MB</span>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <span className="text-gray-500 text-sm sm:text-base">PDF 2.0 MB</span>
                     <div className="flex items-center">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-400">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gray-400 sm:w-5 sm:h-5">
                         <path d="M12 15l-4-4h3V4h2v7h3l-4 4z" fill="currentColor"/>
                         <path d="M2 17h20v2H2v-2z" fill="currentColor"/>
                       </svg>
@@ -101,9 +101,9 @@ export default function Contact() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="space-y-6"
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* First Name & Last Name */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div className="space-y-2">
                     <label 
                       className="text-sm font-medium text-gray-700"
@@ -117,7 +117,7 @@ export default function Contact() {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="Enter first name"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
                       style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                       required
                     />
@@ -135,7 +135,7 @@ export default function Contact() {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Enter last name"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
                       style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                       required
                     />
@@ -143,7 +143,7 @@ export default function Contact() {
                 </div>
 
                 {/* Email & Phone Number */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div className="space-y-2">
                     <label 
                       className="text-sm font-medium text-gray-700"
@@ -157,7 +157,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="Enter email here"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
                       style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                     />
                   </div>
@@ -169,7 +169,7 @@ export default function Contact() {
                       Phone Number
                     </label>
                     <div className="flex">
-                      <select className="px-3 py-3 border border-gray-200 border-r-0 rounded-l-lg bg-gray-50 text-gray-600 focus:outline-none">
+                      <select className="px-2 sm:px-3 py-2.5 sm:py-3 border border-gray-200 border-r-0 rounded-l-lg bg-gray-50 text-gray-600 focus:outline-none text-sm sm:text-base">
                         <option>+62</option>
                         <option>+1</option>
                         <option>+44</option>
@@ -181,7 +181,7 @@ export default function Contact() {
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
                         placeholder="8759-4775-7385"
-                        className="flex-1 px-4 py-3 border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
                         style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                       />
                     </div>
@@ -201,24 +201,24 @@ export default function Contact() {
                     value={formData.projectDescription}
                     onChange={handleInputChange}
                     placeholder="Brief about your project"
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                    rows={3}
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-sm sm:text-base"
                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   />
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex justify-end pt-4">
+                <div className="flex justify-center sm:justify-end pt-2 sm:pt-4">
                   <motion.button
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center gap-3 bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors duration-300"
+                    className="flex items-center gap-2 sm:gap-3 bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                   >
                     <span>Send Enquiry</span>
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="sm:w-3 sm:h-3">
                         <path d="M5 12h14m-7-7l7 7-7 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
@@ -231,18 +231,18 @@ export default function Contact() {
       </div>
 
       {/* Our Locations Section */}
-      <div className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="bg-gray-50 py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <h2 
-              className="text-[32px] md:text-[40px] lg:text-[48px] font-medium text-black mb-4"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black mb-3 sm:mb-4"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
               Our Locations
             </h2>
             <p 
-              className="text-xl md:text-2xl text-gray-700 font-normal"
+              className="text-lg sm:text-xl md:text-2xl text-gray-700 font-normal"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
               Our branches across the world

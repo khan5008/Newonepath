@@ -3,7 +3,6 @@
 import { PhoneCall, Search, ChevronRight, ArrowRight, X, Menu, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import MobileNavigation from "./MobileNavigation";
 
 export default function Header() {
   // Global scroll position for header color change
@@ -201,8 +200,8 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-4 md:px-8 lg:px-20 transition-colors duration-300 ${
-          (headerIsWhite || isServicesHovered) ? "py-2 md:py-1" : "py-3 md:py-2"
+        className={`fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-20 transition-colors duration-300 ${
+          (headerIsWhite || isServicesHovered) ? "py-2 sm:py-2 md:py-1" : "py-3 sm:py-3 md:py-2"
         }`}
         style={{
           zoom: 'reset',
@@ -226,10 +225,10 @@ export default function Header() {
           <motion.img
             src={(headerIsWhite || isServicesHovered) ? "/assets/logo.png" : "/assets/wlogo3.png"}
             alt="OnePath Solutions"
-            className={`w-auto object-contain ${
+            className={`w-auto object-contain transition-all duration-300 ${
               (headerIsWhite || isServicesHovered) 
-                ? "h-12 md:h-12 lg:h-16" 
-                : "h-14 md:h-16 lg:h-24"
+                ? "h-10 sm:h-11 md:h-12 lg:h-16" 
+                : "h-12 sm:h-13 md:h-16 lg:h-24"
             }`}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -242,7 +241,7 @@ export default function Header() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="hidden lg:flex items-center gap-8 xl:gap-12 text-[18px] font-medium tracking-wide absolute left-1/2 transform -translate-x-1/2"
+          className="hidden lg:flex items-center gap-6 xl:gap-8 2xl:gap-12 text-base lg:text-lg xl:text-xl font-medium tracking-wide absolute left-1/2 transform -translate-x-1/2"
           style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
         >
           {navItems.map((item, index) => {
@@ -289,7 +288,7 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="fixed left-0 right-0 w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-[55]"
+                          className="fixed left-0 right-0 w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-[55] max-h-[80vh] overflow-y-auto"
                           style={{ 
                             marginLeft: 0, 
                             marginRight: 0,
@@ -299,11 +298,11 @@ export default function Header() {
                           onMouseEnter={handleServicesMouseEnter}
                           onMouseLeave={handleServicesMouseLeave}
                         >
-                        <div className="w-full px-8 md:px-12 lg:px-20 py-16">
-                          <div className="grid grid-cols-12 gap-12 items-start">
+                        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-8 md:py-12 lg:py-16">
+                          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-7xl mx-auto">
                             {/* Left Side - Large Heading + Button */}
-                            <div className="col-span-12 lg:col-span-4 space-y-8">
-                              <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
+                            <div className="lg:col-span-4 space-y-6 lg:space-y-8">
+                              <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
                                 Building
                                 <br />
                                 strong
@@ -314,9 +313,9 @@ export default function Header() {
                                 <br />
                                 Brand
                               </h2>
-                              <a href="/services" className="flex items-center gap-4 group cursor-pointer">
-                                <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                                  <ArrowRight className="h-6 w-6 text-white" />
+                              <a href="/services" className="flex items-center gap-3 lg:gap-4 group cursor-pointer">
+                                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                                  <ArrowRight className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
                                 </div>
                                 <span className="text-white text-sm md:text-base font-normal">
                                   Go to Overview
@@ -325,8 +324,8 @@ export default function Header() {
                             </div>
 
                             {/* Right Side - Service Categories */}
-                            <div className="col-span-12 lg:col-span-8">
-                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                            <div className="lg:col-span-8">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                                 {/* Column 1 - Branding */}
                                 <div className="space-y-6">
                                   <div className="flex items-center gap-2 group">
@@ -548,7 +547,7 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-12 right-0 w-96 bg-white rounded-2xl shadow-2xl p-6 z-[70] contact-dropdown"
+                  className="absolute top-12 right-0 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl p-4 sm:p-6 z-[70] contact-dropdown max-w-[calc(100vw-2rem)] mr-2 sm:mr-0"
                 >
                   <div className="space-y-4">
                     <h3 className="text-xl font-semibold text-black">Talk to a sales advisor</h3>
@@ -599,7 +598,7 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-12 right-0 w-80 bg-white rounded-2xl shadow-2xl p-6 z-[70] contact-dropdown"
+                  className="absolute top-12 right-0 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl p-4 sm:p-6 z-[70] contact-dropdown max-w-[calc(100vw-2rem)] mr-2 sm:mr-0"
                 >
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-black">Get in Touch</h3>
@@ -687,19 +686,19 @@ export default function Header() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -50, scale: 0.95 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="absolute top-20 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-2xl"
+              className="absolute top-16 sm:top-20 left-2 right-2 sm:left-4 sm:right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
                 {/* Search Header */}
-                <div className="flex items-center gap-4 p-6 border-b border-gray-100">
-                  <Search className="h-6 w-6 text-gray-400 flex-shrink-0" />
+                <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 border-b border-gray-100">
+                  <Search className="h-5 w-5 sm:h-6 sm:w-6 text-gray-400 flex-shrink-0" />
                   <input
                     type="text"
-                    placeholder="Search services, solutions, industries..."
+                    placeholder="Search services, solutions..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="flex-1 text-lg placeholder-gray-400 focus:outline-none"
+                    className="flex-1 text-base sm:text-lg placeholder-gray-400 focus:outline-none"
                     autoFocus
                   />
                   <button
@@ -711,7 +710,7 @@ export default function Header() {
                 </div>
 
                 {/* Search Results/Suggestions */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   {searchQuery ? (
                     <div className="space-y-3">
                       <p className="text-sm text-gray-500 mb-4">Search results for "{searchQuery}"</p>

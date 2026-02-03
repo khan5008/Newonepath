@@ -115,16 +115,16 @@ export default function Portfolio() {
   return (
     <section className="min-h-screen bg-white" data-header-color="white">
       {/* Hero Section */}
-      <div className="pt-32 pb-12 px-6 md:px-12 lg:px-20">
+      <div className="pt-28 sm:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-full mx-auto">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 sm:mb-12 gap-4 sm:gap-0">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
               <h1
-                className="text-3xl md:text-4xl lg:text-5xl text-black font-normal"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black font-normal"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
                 Case Studies
@@ -135,7 +135,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex gap-4 relative"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 relative"
             >
               {/* Industries Dropdown */}
               <div className="relative">
@@ -144,7 +144,7 @@ export default function Portfolio() {
                     setIndustriesOpen(!industriesOpen);
                     setExpertiseOpen(false);
                   }}
-                  className="px-8 py-3 border-2 border-gray-400 rounded-full text-base font-medium text-gray-700 hover:border-gray-600 transition-colors flex items-center gap-2"
+                  className="w-full sm:w-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 border-2 border-gray-400 rounded-full text-sm sm:text-base font-medium text-gray-700 hover:border-gray-600 transition-colors flex items-center justify-center sm:justify-start gap-2"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
                   Industries
@@ -158,27 +158,27 @@ export default function Portfolio() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full mt-2 right-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50"
+                      className="absolute top-full mt-2 left-0 sm:right-0 sm:left-auto w-full sm:w-80 max-w-sm bg-white rounded-2xl shadow-2xl border border-gray-200 z-50"
                     >
-                      <div className="p-4">
+                      <div className="p-3 sm:p-4">
                         <input
                           type="text"
                           placeholder="Search"
-                          className="w-full p-3 bg-gray-100 rounded-lg text-sm border-none outline-none mb-4"
+                          className="w-full p-2.5 sm:p-3 bg-gray-100 rounded-lg text-sm border-none outline-none mb-3 sm:mb-4"
                           style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                         />
-                        <div className="max-h-80 overflow-y-auto">
+                        <div className="max-h-60 sm:max-h-80 overflow-y-auto">
                           {industries.map((industry) => (
                             <label
                               key={industry}
-                              className="flex items-center gap-3 py-3 px-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                              className="flex items-center gap-2 sm:gap-3 py-2 sm:py-3 px-1 sm:px-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
                             >
                               <input
                                 type="checkbox"
                                 className="w-4 h-4 border-2 border-gray-300 rounded"
                               />
                               <span
-                                className="text-base text-gray-700"
+                                className="text-sm sm:text-base text-gray-700"
                                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                               >
                                 {industry}
