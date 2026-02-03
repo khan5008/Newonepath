@@ -6,7 +6,131 @@ import { useRouter } from "next/navigation";
 import { Search, Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import Header from "./Header";
 import FooterSection from "./FooterSection";
-import { getFeaturedPost, getBlogPosts } from "@/data/blogPosts";
+
+interface BlogPost {
+  id: number;
+  title: string;
+  content?: string;
+  excerpt: string;
+  image?: string;
+  category: string;
+  author: string;
+  authorImage: string;
+  authorBio?: string;
+  date: string;
+  readTime: string;
+  tags?: string[];
+  featured?: boolean;
+}
+
+// Embedded blog data for consistency
+const blogPostsData: BlogPost[] = [
+  {
+    id: 1,
+    title: "The Future of AI-Native Engineering: Transforming Software Development",
+    excerpt: "Explore how artificial intelligence is revolutionizing the way we approach software engineering, from code generation to automated testing and deployment.",
+    image: "/assets/Rectangle 88.png",
+    category: "Technology",
+    author: "Abdul Hameed",
+    authorImage: "/assets/Manager.jpeg",
+    authorBio: "Managing Director at One Path Solutions with over 15 years of experience in software engineering and AI technologies.",
+    date: "January 15, 2026",
+    readTime: "12 min read",
+    tags: ["AI", "Software Engineering", "Machine Learning", "Development"],
+    featured: true
+  },
+  {
+    id: 2,
+    title: "NodeJS vs Python: Choosing the Right Backend Technology in 2026",
+    excerpt: "A comprehensive comparison of NodeJS and Python for backend development, covering performance, scalability, and ecosystem considerations.",
+    image: "/assets/Rectangle 88 (1).png",
+    category: "Development",
+    author: "Sarah Johnson",
+    authorImage: "/assets/emp1.jpg",
+    date: "January 10, 2026",
+    readTime: "8 min read"
+  },
+  {
+    id: 3,
+    title: "Complete Guide to Mobile App Development in 2026",
+    excerpt: "Everything you need to know about mobile app development, from choosing the right framework to deployment strategies.",
+    image: "/assets/Rectangle 88 (2).png",
+    category: "Development",
+    author: "Michael Chen",
+    authorImage: "/assets/emp2.jpg",
+    date: "January 5, 2026",
+    readTime: "15 min read"
+  },
+  {
+    id: 4,
+    title: "Design Systems: Building Consistent User Experiences",
+    excerpt: "Learn how to create and maintain design systems that ensure consistency across all your digital products.",
+    image: "/assets/Rectangle 88 (3).png",
+    category: "Design",
+    author: "Emily Rodriguez",
+    authorImage: "/assets/emp3.png",
+    date: "December 28, 2025",
+    readTime: "10 min read"
+  },
+  {
+    id: 5,
+    title: "The Rise of Micro-Frontends: Architecture for Scale",
+    excerpt: "Discover how micro-frontend architecture can help large teams build and maintain complex web applications.",
+    image: "/assets/Rectangle 88 (4).png",
+    category: "Technology",
+    author: "Abdul Hameed",
+    authorImage: "/assets/Manager.jpeg",
+    date: "December 20, 2025",
+    readTime: "11 min read"
+  },
+  {
+    id: 6,
+    title: "Digital Marketing Trends That Will Define 2026",
+    excerpt: "Stay ahead of the curve with the latest digital marketing trends and strategies for the coming year.",
+    image: "/assets/Rectangle 88 (5).png",
+    category: "Marketing",
+    author: "Sarah Johnson",
+    authorImage: "/assets/emp1.jpg",
+    date: "December 15, 2025",
+    readTime: "9 min read"
+  },
+  {
+    id: 7,
+    title: "Building Scalable Cloud Infrastructure",
+    excerpt: "Best practices for designing and implementing cloud infrastructure that grows with your business.",
+    image: "/assets/portfoliodetail.jpg",
+    category: "Technology",
+    author: "Michael Chen",
+    authorImage: "/assets/emp2.jpg",
+    date: "December 10, 2025",
+    readTime: "13 min read"
+  },
+  {
+    id: 8,
+    title: "User Experience Design: Psychology Meets Technology",
+    excerpt: "Understanding the psychological principles that drive effective user experience design.",
+    image: "/assets/portfoliodetail2.jpg",
+    category: "Design",
+    author: "Emily Rodriguez",
+    authorImage: "/assets/emp3.png",
+    date: "December 5, 2025",
+    readTime: "7 min read"
+  },
+  {
+    id: 9,
+    title: "The Business Case for Digital Transformation",
+    excerpt: "Why digital transformation is no longer optional and how to build a compelling business case.",
+    image: "/assets/portfoliodetail3.jpg",
+    category: "Business",
+    author: "Abdul Hameed",
+    authorImage: "/assets/Manager.jpeg",
+    date: "November 30, 2025",
+    readTime: "14 min read"
+  }
+];
+
+const getFeaturedPost = () => blogPostsData.find(post => post.featured) || blogPostsData[0];
+const getBlogPosts = () => blogPostsData.filter(post => !post.featured);
 
 export default function Insights() {
   const [selectedCategory, setSelectedCategory] = useState("All");
