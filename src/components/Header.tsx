@@ -236,13 +236,18 @@ export default function Header() {
           />
         </motion.div>
 
-        {/* Desktop Navigation - Centered */}
+        {/* Desktop Navigation - Positioned with proper spacing */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="hidden lg:flex items-center gap-6 xl:gap-8 2xl:gap-12 text-base lg:text-lg xl:text-xl font-medium tracking-wide absolute left-1/2 transform -translate-x-1/2"
-          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+          className="hidden lg:flex items-center gap-6 xl:gap-8 2xl:gap-10 text-base lg:text-lg xl:text-xl font-medium tracking-wide absolute"
+          style={{ 
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            maxWidth: 'calc(100vw - 400px)' // Ensure it doesn't overlap with icons
+          }}
         >
           {navItems.map((item, index) => {
             if (item === "Services") {
@@ -276,214 +281,245 @@ export default function Header() {
                   <AnimatePresence>
                     {isServicesHovered && (
                       <>
-                        {/* Invisible bridge to prevent hover gaps */}
-                        <div 
-                          className="absolute top-full left-0 right-0 h-4 bg-transparent z-[54]"
-                          onMouseEnter={handleServicesMouseEnter}
-                          onMouseLeave={handleServicesMouseLeave}
-                        />
-                        
                         <motion.div
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="fixed left-0 right-0 w-screen bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-[55] max-h-[80vh] overflow-y-auto"
+                          className="fixed bg-black bg-gradient-to-r from-black to-[#0a1a1f] z-[55]"
                           style={{ 
-                            marginLeft: 0, 
-                            marginRight: 0,
-                            top: '80px', // Start below the header
-                            willChange: 'transform, opacity'
+                            left: 0,
+                            right: 0,
+                            width: '100vw',
+                            top: '60px',
+                            willChange: 'transform, opacity',
+                            overflow: 'visible'
                           }}
                           onMouseEnter={handleServicesMouseEnter}
                           onMouseLeave={handleServicesMouseLeave}
                         >
-                        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-8 md:py-12 lg:py-16">
-                          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-7xl mx-auto">
+                          <div style={{ 
+                            width: '100vw', 
+                            minWidth: '1400px',
+                            padding: '64px 80px',
+                            display: 'flex',
+                            gap: '64px',
+                            alignItems: 'flex-start'
+                          }}>
                             {/* Left Side - Large Heading + Button */}
-                            <div className="lg:col-span-4 space-y-6 lg:space-y-8">
-                              <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', fontWeight: 400 }}>
-                                Building
-                                <br />
-                                strong
-                                <br />
-                                Capabilities to
-                                <br />
-                                Empower Your
-                                <br />
-                                Brand
-                              </h2>
-                              <a href="/services" className="flex items-center gap-3 lg:gap-4 group cursor-pointer">
-                                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                                  <ArrowRight className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
-                                </div>
-                                <span className="text-white text-sm md:text-base font-normal">
-                                  Go to Overview
-                                </span>
-                              </a>
+                            <div style={{ 
+                              width: '400px',
+                              flexShrink: 0
+                            }}>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                                <h2 className="text-white font-normal leading-tight tracking-tight" style={{ 
+                                  fontFamily: 'Poppins, system-ui, -apple-system, sans-serif', 
+                                  fontWeight: 400,
+                                  fontSize: '60px',
+                                  lineHeight: '1.1'
+                                }}>
+                                  Building
+                                  <br />
+                                  strong
+                                  <br />
+                                  Capabilities to
+                                  <br />
+                                  Empower Your
+                                  <br />
+                                  Brand
+                                </h2>
+                                <a href="/services" className="flex items-center gap-4 group cursor-pointer">
+                                  <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                                    <ArrowRight className="h-6 w-6 text-white" />
+                                  </div>
+                                  <span className="text-white text-base font-normal">
+                                    Go to Overview
+                                  </span>
+                                </a>
+                              </div>
                             </div>
 
                             {/* Right Side - Service Categories */}
-                            <div className="lg:col-span-8">
-                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-                                {/* Column 1 - Branding */}
-                                <div className="space-y-6">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Branding
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/brandconsulting">Brand Consulting</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/logo">Logo Design</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/product">Product Design</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/graphicdesign">Graphic Design</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/2dvisualization">2D / 3D Visualization</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/videocreation">Video Creation & Editing</a>
-                                    </li>
-                                  </ul>
-
-                                  {/* ERP Section - moved under Branding */}
-                                  <div className="space-y-6 pt-6 border-t border-white/10">
-                                    <div className="flex items-center gap-2 group">
-                                      <h3 className="text-white text-sm md:text-base font-semibold">
-                                        ERP
-                                      </h3>
-                                      <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                    </div>
-                                    <ul className="space-y-3">
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/microsoftdynamics">Microsoft Dynamics</a>
-                                      </li>
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/odoo">Odoo</a>
-                                      </li>
-                                    </ul>
-                                  </div>
+                            <div style={{ 
+                              flex: 1,
+                              minWidth: '900px',
+                              display: 'flex',
+                              gap: '48px'
+                            }}>
+                              {/* Column 1 - Branding */}
+                              <div style={{ 
+                                flex: 1,
+                                minWidth: '280px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '24px'
+                              }}>
+                                <div className="flex items-center gap-2 group">
+                                  <h3 className="text-white text-base font-semibold">
+                                    Branding
+                                  </h3>
+                                  <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                 </div>
+                                <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/brandconsulting">Brand Consulting</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/logo">Logo Design</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/product">Product Design</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/graphicdesign">Graphic Design</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/2dvisualization">2D / 3D Visualization</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/videocreation">Video Creation & Editing</a>
+                                  </li>
+                                </ul>
 
-                                {/* Column 2 - Intuitive Design */}
-                                <div className="space-y-6">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Intuitive Design
+                                {/* ERP Section */}
+                                <div style={{ paddingTop: '24px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                                  <div className="flex items-center gap-2 group" style={{ marginBottom: '24px' }}>
+                                    <h3 className="text-white text-base font-semibold">
+                                      ERP
                                     </h3>
                                     <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                                   </div>
-                                  <ul className="space-y-3">
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/uiuxdesign">UI/UX Design</a>
+                                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/microsoftdynamics">Microsoft Dynamics</a>
                                     </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/websitedesign">Website Design</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/mobileexperience">Mobile Experience</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/commerceexperience">Commerce Experience</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/prototype">Prototypes</a>
-                                    </li>
-                                  </ul>
-
-                                  {/* Digital Marketing Section - moved under Intuitive Design */}
-                                  <div className="space-y-6 pt-6 border-t border-white/10">
-                                    <div className="flex items-center gap-2 group">
-                                      <h3 className="text-white text-sm md:text-base font-semibold">
-                                        Digital Marketing
-                                      </h3>
-                                      <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                    </div>
-                                    <ul className="space-y-3">
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/searchengine">Search Engine Optimization</a>
-                                      </li>
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/socialmedia">Social Media Management</a>
-                                      </li>
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/performancemarketing">Performance Marketing</a>
-                                      </li>
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/contentmarketing">Content Marketing</a>
-                                      </li>
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/marketingautomation">Marketing Automation</a>
-                                      </li>
-                                      <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                        <a href="/analytics">Analytics</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-
-                                {/* Column 3 - Technology */}
-                                <div className="space-y-6">
-                                  <div className="flex items-center gap-2 group">
-                                    <h3 className="text-white text-sm md:text-base font-semibold">
-                                      Technology
-                                    </h3>
-                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
-                                  </div>
-                                  <ul className="space-y-3">
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/aiml">AI & Machine Learning</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/dataanalytics">Data & Analytics</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/webdevelopment">Web Development</a>
-                                    </li>
-                                    <li className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer">
-                                      <a href="/mobileappdevelopment">Mobile App Development</a>
-                                    </li>
-                                    <li 
-                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      onClick={() => window.location.href = '/ecommerce'}
-                                    >
-                                      E-Commerce
-                                    </li>
-                                    <li 
-                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      onClick={() => window.location.href = '/quality-assurance'}
-                                    >
-                                      Quality Assurance & Testing
-                                    </li>
-                                    <li 
-                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      onClick={() => window.location.href = '/cloud-services'}
-                                    >
-                                      Cloud Services
-                                    </li>
-                                    <li 
-                                      className="text-white/80 text-xs md:text-sm hover:text-white transition-colors cursor-pointer"
-                                      onClick={() => window.location.href = '/cyber-security'}
-                                    >
-                                      Cyber Security
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/odoo">Odoo</a>
                                     </li>
                                   </ul>
                                 </div>
                               </div>
+
+                              {/* Column 2 - Intuitive Design */}
+                              <div style={{ 
+                                flex: 1,
+                                minWidth: '280px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '24px'
+                              }}>
+                                <div className="flex items-center gap-2 group">
+                                  <h3 className="text-white text-base font-semibold">
+                                    Intuitive Design
+                                  </h3>
+                                  <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                </div>
+                                <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/uiuxdesign">UI/UX Design</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/websitedesign">Website Design</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/mobileexperience">Mobile Experience</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/commerceexperience">Commerce Experience</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/prototype">Prototypes</a>
+                                  </li>
+                                </ul>
+
+                                {/* Digital Marketing Section */}
+                                <div style={{ paddingTop: '24px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                                  <div className="flex items-center gap-2 group" style={{ marginBottom: '24px' }}>
+                                    <h3 className="text-white text-base font-semibold">
+                                      Digital Marketing
+                                    </h3>
+                                    <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                  </div>
+                                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/searchengine">Search Engine Optimization</a>
+                                    </li>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/socialmedia">Social Media Management</a>
+                                    </li>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/performancemarketing">Performance Marketing</a>
+                                    </li>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/contentmarketing">Content Marketing</a>
+                                    </li>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/marketingautomation">Marketing Automation</a>
+                                    </li>
+                                    <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                      <a href="/analytics">Analytics</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+
+                              {/* Column 3 - Technology */}
+                              <div style={{ 
+                                flex: 1,
+                                minWidth: '280px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '24px'
+                              }}>
+                                <div className="flex items-center gap-2 group">
+                                  <h3 className="text-white text-base font-semibold">
+                                    Technology
+                                  </h3>
+                                  <ChevronRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                                </div>
+                                <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/aiml">AI & Machine Learning</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/dataanalytics">Data & Analytics</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/webdevelopment">Web Development</a>
+                                  </li>
+                                  <li className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer">
+                                    <a href="/mobileappdevelopment">Mobile App Development</a>
+                                  </li>
+                                  <li 
+                                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer"
+                                    onClick={() => window.location.href = '/ecommerce'}
+                                  >
+                                    E-Commerce
+                                  </li>
+                                  <li 
+                                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer"
+                                    onClick={() => window.location.href = '/quality-assurance'}
+                                  >
+                                    Quality Assurance & Testing
+                                  </li>
+                                  <li 
+                                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer"
+                                    onClick={() => window.location.href = '/cloud-services'}
+                                  >
+                                    Cloud Services
+                                  </li>
+                                  <li 
+                                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer"
+                                    onClick={() => window.location.href = '/cyber-security'}
+                                  >
+                                    Cyber Security
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    </>
+                        </motion.div>
+                      </>
                     )}
                   </AnimatePresence>
                 </div>
