@@ -8,6 +8,7 @@ const solutions = [
   "Queuing Management",
   "Document Management System",
   "Project Management System",
+  "Hospital Management System",
 ];
 
 export default function OurSolutionsSection() {
@@ -59,15 +60,15 @@ export default function OurSolutionsSection() {
           </p>
         </motion.div>
 
-        {/* Glassy solution pills */}
+        {/* Glassy solution pills - 3 per row */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          className="mt-10 flex flex-col gap-4"
+          className="mt-10 w-full max-w-5xl"
         >
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {solutions.map((label, index) => (
               <motion.button
                 key={`${label}-${index}`}
@@ -84,11 +85,11 @@ export default function OurSolutionsSection() {
                   boxShadow: "0 18px 45px rgba(15,23,42,0.55)",
                 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-5 md:px-7 py-2 md:py-2.5 text-sm md:text-[15px] text-white backdrop-blur-2xl shadow-[0_12px_35px_rgba(15,23,42,0.7)]"
+                className="inline-flex items-center justify-between gap-3 rounded-full border border-white/25 bg-white/10 px-5 md:px-7 py-2 md:py-2.5 text-sm md:text-[15px] text-white backdrop-blur-2xl shadow-[0_12px_35px_rgba(15,23,42,0.7)]"
                 style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}
               >
                 <span>{label}</span>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-black text-xs">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-black text-xs flex-shrink-0">
                   ↴
                 </span>
               </motion.button>

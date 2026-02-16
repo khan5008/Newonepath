@@ -6,37 +6,37 @@ const whatWeDoItems = [
   {
     id: 1,
     title: "Branding",
-    image: "/assets/Rectangle 88 (5).png",
+    image: "/assets/w1.jpeg",
     link: "/services", // Navigate to services page for branding section
   },
   {
     id: 2,
     title: "Intuitive Design",
-    image: "/assets/Rectangle 88 (2).png",
+    image: "/assets/w2.jpeg",
     link: "/services", // Navigate to services page for intuitive design section
   },
   {
     id: 3,
     title: "Technology",
-    image: "/assets/Rectangle 88 (3).png",
+    image: "/assets/w3.jpeg",
     link: "/services", // Navigate to services page for technology section
   },
   {
     id: 4,
     title: "ERP",
-    image: "/assets/Rectangle 88 (4).png",
+    image: "/assets/w4.jpg",
     link: "/services", // Navigate to services page for ERP section
   },
   {
     id: 5,
     title: "Digital Marketing",
-    image: "/assets/Rectangle 88.png",
+    image: "/assets/w8.jpg",
     link: "/services", // Navigate to services page for digital marketing section
   },
   {
     id: 6,
     title: "Web Development",
-    image: "/assets/Rectangle 88 (1).png",
+    image: "/assets/w7.jpg",
     link: "/webdevelopment", // Direct link to web development page
   },
 ];

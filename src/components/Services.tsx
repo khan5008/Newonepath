@@ -39,6 +39,28 @@ export default function Services() {
         "Mobile App Development",
         "E-Commerce",
         "Quality Assurance & Testing",
+        "Cloud Services",
+        "Cyber Security"
+      ],
+    },
+    {
+      title: "Digital Marketing",
+      image: "/assets/solution3.jpg",
+      services: [
+        "Search Engine Optimization",
+        "Social Media Management",
+        "Performance Marketing",
+        "Content Marketing",
+        "Marketing Automation",
+        "Analytics",
+      ],
+    },
+    {
+      title: "ERP",
+      image: "/assets/solution4.jpg",
+      services: [
+        "Microsoft Dynamics",
+        "Odoo",
       ],
     },
   ];
@@ -152,6 +174,20 @@ export default function Services() {
                           "Mobile App Development": "/mobileappdevelopment",
                           "E-Commerce": "/ecommerce",
                           "Quality Assurance & Testing": "/quality-assurance",
+                          "Cloud Services": "/cloud-services",
+                          "Cyber Security": "/cyber-security",
+                          
+                          // Digital Marketing services
+                          "Search Engine Optimization": "/searchengine",
+                          "Social Media Management": "/socialmedia",
+                          "Performance Marketing": "/performancemarketing",
+                          "Content Marketing": "/contentmarketing",
+                          "Marketing Automation": "/marketingautomation",
+                          "Analytics": "/analytics",
+                          
+                          // ERP services
+                          "Microsoft Dynamics": "/microsoftdynamics",
+                          "Odoo": "/odoo",
                         };
                         return routeMap[serviceName] || "#";
                       };

@@ -18,13 +18,13 @@ const caseStudies = [
   },
   {
     id: 3,
-    image: "/assets/Rectangle 84.png",
+    image: "/assets/hajjpath2.webp",
     category: "Education",
     title: "Middlesex University: Revamping the digital face of a world-class university for better visual impact",
   },
   {
     id: 4,
-    image: "/assets/Rectangle 85.png",
+    image: "/assets/bekhaas1.png",
     category: "Technology",
     title: "Digital transformation for a leading tech company with innovative solutions",
   },
@@ -36,7 +36,7 @@ const caseStudies = [
   },
   {
     id: 6,
-    image: "/assets/Rectangle 88 (1).png",
+    image: "/assets/Malomati-App-1.webp",
     category: "Finance",
     title: "Financial services app providing secure and intuitive banking solutions",
   },
@@ -103,6 +103,16 @@ export default function CaseStudiesSection() {
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   >
                     <source src="/assets/THE GLOBAL V.mp4" type="video/mp4" />
+                  </video>
+                ) : index === 3 ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  >
+                    <source src="/assets/Chicago Eats.mp4" type="video/mp4" />
                   </video>
                 ) : (
                   <img

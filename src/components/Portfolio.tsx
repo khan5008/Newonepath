@@ -52,13 +52,13 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      image: "/assets/Rectangle 84.png",
+      image: "/assets/hajjpath2.webp",
       category: "Automobile",
       title: "Turtlewax: Achieving glossy greatness for cars with a smooth redefined website",
     },
     {
       id: 4,
-      image: "/assets/Rectangle 85.png",
+      image: "/assets/Malomati-App-1.webp",
       category: "Technology",
       title: "Tech Solutions: Building innovative platforms for modern businesses",
     },
@@ -70,13 +70,13 @@ export default function Portfolio() {
     },
     {
       id: 6,
-      image: "/assets/Rectangle 84 (1).png",
+      image: "/assets/bekhaas1.png",
       category: "Education",
       title: "EduTech: Revolutionizing learning experiences through technology",
     },
     {
       id: 7,
-      image: "/assets/Rectangle 84.png",
+      image: "/assets/Bekhaas.png",
       category: "Finance",
       title: "FinanceHub: Streamlining financial services with cutting-edge solutions",
     },
@@ -88,25 +88,25 @@ export default function Portfolio() {
     },
     {
       id: 9,
-      image: "/assets/image 3.png",
+      image: "/assets/Malomati-App-2.webp",
       category: "Travel",
       title: "TravelPro: Simplifying travel planning with innovative booking systems",
     },
     {
       id: 10,
-      image: "/assets/Rectangle 84 (1).png",
+      image: "/assets/realstate.png",
       category: "Real Estate",
       title: "PropertyHub: Modernizing property management and sales platforms",
     },
     {
       id: 11,
-      image: "/assets/Rectangle 84.png",
+      image: "/assets/ershad.webp",
       category: "Entertainment",
       title: "StreamMax: Delivering premium content streaming experiences",
     },
     {
       id: 12,
-      image: "/assets/Rectangle 85.png",
+      image: "/assets/Malomati-App-1.webp",
       category: "Sports",
       title: "FitTrack: Empowering athletes with performance tracking solutions",
     },
@@ -281,6 +281,16 @@ export default function Portfolio() {
                       className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
                     >
                       <source src="/assets/THE GLOBAL V.mp4" type="video/mp4" />
+                    </video>
+                  ) : index === 3 ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    >
+                      <source src="/assets/Chicago Eats.mp4" type="video/mp4" />
                     </video>
                   ) : (
                     <img
