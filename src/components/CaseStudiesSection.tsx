@@ -5,37 +5,37 @@ import { useRouter } from "next/navigation";
 
 const caseStudies = [
   {
-    id: 1,
+    id: 101, // Using 100+ IDs to differentiate from portfolio items
     image: "/assets/Rectangle 84 (1).png",
-    category: "Food",
+    category: "Education",
     title: "Caribou: Helping a reputed coffee chain go digital with a powerful app in their Kuwait chapter",
   },
   {
-    id: 2,
+    id: 102,
     image: "/assets/image 3.png",
     category: "Retail",
     title: "Lul u Hypermarket: Building a one-click path for a search-intensive, high volume big brand store",
   },
   {
-    id: 3,
+    id: 103,
     image: "/assets/hajjpath2.webp",
     category: "Education",
     title: "Middlesex University: Revamping the digital face of a world-class university for better visual impact",
   },
   {
-    id: 4,
+    id: 104,
     image: "/assets/bekhaas1.png",
-    category: "Technology",
+    category: "Food",
     title: "Digital transformation for a leading tech company with innovative solutions",
   },
   {
-    id: 5,
+    id: 105,
     image: "/assets/hajjpathimage.png",
     category: "Healthcare",
     title: "Healthcare platform revolutionizing patient care with seamless digital experience",
   },
   {
-    id: 6,
+    id: 106,
     image: "/assets/Malomati-App-1.webp",
     category: "Finance",
     title: "Financial services app providing secure and intuitive banking solutions",
@@ -45,8 +45,8 @@ const caseStudies = [
 export default function CaseStudiesSection() {
   const router = useRouter();
 
-  const handleCardClick = () => {
-    router.push('/portfoliodetail');
+  const handleCardClick = (id: number) => {
+    router.push(`/portfoliodetail?id=${id}`);
   };
 
   return (
@@ -80,7 +80,7 @@ export default function CaseStudiesSection() {
                 ease: "easeOut" 
               }}
               className="group cursor-pointer"
-              onClick={handleCardClick}
+              onClick={() => handleCardClick(study.id)}
             >
               {/* Image Container - clean rounded corners */}
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl mb-6 bg-gray-100">

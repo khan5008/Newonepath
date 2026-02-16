@@ -41,49 +41,49 @@ export default function Portfolio() {
     {
       id: 1,
       image: "/assets/image 3.png",
-      category: "Food",
+      category: "Education",
       title: "Caribou: Helping a reputed coffee chain go digital with a powerful app in their Kuwait chapter",
     },
     {
       id: 2,
       image: "/assets/Rectangle 84 (1).png",
-      category: "Retail / Food",
+      category: "Retail",
       title: "IKEA Foods: Delectably designed branded E-commerce store to launch a new sales channel",
     },
     {
       id: 3,
       image: "/assets/hajjpath2.webp",
-      category: "Automobile",
+      category: "Travel",
       title: "Turtlewax: Achieving glossy greatness for cars with a smooth redefined website",
     },
     {
       id: 4,
       image: "/assets/Malomati-App-1.webp",
-      category: "Technology",
+      category: "Food",
       title: "Tech Solutions: Building innovative platforms for modern businesses",
     },
     {
       id: 5,
       image: "/assets/hajjpathimage.png",
-      category: "Healthcare",
+      category: "Travel",
       title: "MediCare: Transforming patient care with digital health solutions",
     },
     {
       id: 6,
       image: "/assets/bekhaas1.png",
-      category: "Education",
+      category: "Ecommerce",
       title: "EduTech: Revolutionizing learning experiences through technology",
     },
     {
       id: 7,
       image: "/assets/Bekhaas.png",
-      category: "Finance",
+      category: "Ecommerce",
       title: "FinanceHub: Streamlining financial services with cutting-edge solutions",
     },
     {
       id: 8,
       image: "/assets/Rectangle 85.png",
-      category: "E-commerce",
+      category: "Education",
       title: "ShopEasy: Creating seamless shopping experiences for customers",
     },
     {
@@ -257,7 +257,7 @@ export default function Portfolio() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                onClick={() => router.push('/portfoliodetail')}
+                onClick={() => router.push(`/portfoliodetail?id=${study.id}`)}
                 className="group cursor-pointer"
               >
                 {/* Image */}
@@ -291,6 +291,16 @@ export default function Portfolio() {
                       className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
                     >
                       <source src="/assets/Chicago Eats.mp4" type="video/mp4" />
+                    </video>
+                  ) : index === 6 ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    >
+                      <source src="/assets/Bekhaas.mp4" type="video/mp4" />
                     </video>
                   ) : (
                     <img

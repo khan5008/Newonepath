@@ -3,9 +3,135 @@
 import { motion } from "framer-motion";
 import { Bookmark, Share2, Image as ImageIcon } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import FooterSection from "./FooterSection";
 
 export default function PortfolioDetail() {
+  const searchParams = useSearchParams();
+  const portfolioId = searchParams.get('id');
+  
+  // Portfolio data matching the Portfolio.tsx
+  const portfolioData: { [key: string]: { 
+    image?: string; 
+    video?: string; 
+    category: string; 
+    title: string;
+    isVideo: boolean;
+  } } = {
+    // Portfolio items (1-12)
+    "1": {
+      video: "/assets/MySalah.mp4",
+      category: "Food",
+      title: "Caribou: Helping a reputed coffee chain go digital with a powerful app in their Kuwait chapter",
+      isVideo: true
+    },
+    "2": {
+      video: "/assets/THE GLOBAL V.mp4",
+      category: "Retail / Food",
+      title: "IKEA Foods: Delectably designed branded E-commerce store to launch a new sales channel",
+      isVideo: true
+    },
+    "3": {
+      image: "/assets/hajjpath2.webp",
+      category: "Automobile",
+      title: "Turtlewax: Achieving glossy greatness for cars with a smooth redefined website",
+      isVideo: false
+    },
+    "4": {
+      video: "/assets/Chicago Eats.mp4",
+      category: "Technology",
+      title: "Tech Solutions: Building innovative platforms for modern businesses",
+      isVideo: true
+    },
+    "5": {
+      image: "/assets/hajjpathimage.png",
+      category: "Healthcare",
+      title: "MediCare: Transforming patient care with digital health solutions",
+      isVideo: false
+    },
+    "6": {
+      image: "/assets/bekhaas1.png",
+      category: "Education",
+      title: "EduTech: Revolutionizing learning experiences through technology",
+      isVideo: false
+    },
+    "7": {
+      video: "/assets/Bekhaas.mp4",
+      category: "Finance",
+      title: "FinanceHub: Streamlining financial services with cutting-edge solutions",
+      isVideo: true
+    },
+    "8": {
+      image: "/assets/Rectangle 85.png",
+      category: "E-commerce",
+      title: "ShopEasy: Creating seamless shopping experiences for customers",
+      isVideo: false
+    },
+    "9": {
+      image: "/assets/Malomati-App-2.webp",
+      category: "Travel",
+      title: "TravelPro: Simplifying travel planning with innovative booking systems",
+      isVideo: false
+    },
+    "10": {
+      image: "/assets/realstate.png",
+      category: "Real Estate",
+      title: "PropertyHub: Modernizing property management and sales platforms",
+      isVideo: false
+    },
+    "11": {
+      image: "/assets/ershad.webp",
+      category: "Entertainment",
+      title: "StreamMax: Delivering premium content streaming experiences",
+      isVideo: false
+    },
+    "12": {
+      image: "/assets/Malomati-App-1.webp",
+      category: "Sports",
+      title: "FitTrack: Empowering athletes with performance tracking solutions",
+      isVideo: false
+    },
+    // Case Studies items (101-106)
+    "101": {
+      video: "/assets/Mysalah.mp4",
+      category: "Education",
+      title: "Caribou: Helping a reputed coffee chain go digital with a powerful app in their Kuwait chapter",
+      isVideo: true
+    },
+    "102": {
+      video: "/assets/THE GLOBAL V.mp4",
+      category: "Retail",
+      title: "Lul u Hypermarket: Building a one-click path for a search-intensive, high volume big brand store",
+      isVideo: true
+    },
+    "103": {
+      image: "/assets/hajjpath2.webp",
+      category: "Education",
+      title: "Middlesex University: Revamping the digital face of a world-class university for better visual impact",
+      isVideo: false
+    },
+    "104": {
+      video: "/assets/Chicago Eats.mp4",
+      category: "Food",
+      title: "Digital transformation for a leading tech company with innovative solutions",
+      isVideo: true
+    },
+    "105": {
+      image: "/assets/hajjpathimage.png",
+      category: "Healthcare",
+      title: "Healthcare platform revolutionizing patient care with seamless digital experience",
+      isVideo: false
+    },
+    "106": {
+      image: "/assets/Malomati-App-1.webp",
+      category: "Finance",
+      title: "Financial services app providing secure and intuitive banking solutions",
+      isVideo: false
+    },
+  };
+
+  const currentPortfolio = portfolioId && portfolioData[portfolioId] ? portfolioData[portfolioId] : portfolioData["1"];
+  
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const heroImages = ["/assets/portfoliodetail2.jpg", "/assets/hajjpath.png"];
 
@@ -34,19 +160,25 @@ export default function PortfolioDetail() {
 
   return (
     <section className="min-h-screen bg-white" data-header-color="white">
-      {/* Hero Image Section */}
+      {/* Hero Image/Video Section */}
       <div className="relative w-full h-screen">
-        {heroImages.map((image, index) => (
-          <motion.img
-            key={image}
-            src={image}
+        {currentPortfolio.isVideo ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={currentPortfolio.video} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={currentPortfolio.image}
             alt="Portfolio Detail"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
-            transition={{ duration: 1 }}
             className="absolute inset-0 w-full h-full object-cover"
           />
-        ))}
+        )}
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
@@ -63,13 +195,13 @@ export default function PortfolioDetail() {
               className="text-white text-sm md:text-base mb-4"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
-              Industry: Donation
+              Industry: {currentPortfolio.category}
             </p>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl text-white font-light leading-tight"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
-              Basaier&apos;s Digital Takeoff With Web App Portal
+              {currentPortfolio.title}
             </h1>
           </motion.div>
 
